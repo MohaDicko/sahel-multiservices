@@ -18,7 +18,7 @@ export default function Home() {
           <div className="space-y-4">
             <p className="text-xl">📞 +223 82 57 55 55</p>
             <p className="text-xl">📧 contact@sahel-multiservices.com</p>
-            <p className="text-xl">📍 Bamako, Mali</p>
+            <p className="text-xl">📍 Niamana Bamako, Mali</p>
           </div>
         </div>
       </section>

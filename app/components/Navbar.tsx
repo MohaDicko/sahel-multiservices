@@ -7,7 +7,7 @@ export default function Navbar() {
     <nav className="fixed w-full z-50 top-0 start-0 border-b border-white/10 bg-slate-900/80 backdrop-blur-md">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="/logo.png" className="h-10 w-auto" alt="Sahel Multiservices Logo" />
+          <img src="/sahel-logo-v3.png" className="h-10 w-auto" alt="Sahel Multiservices Logo" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
             Sahel<span className="text-amber-500">Multiservices</span>
           </span>
