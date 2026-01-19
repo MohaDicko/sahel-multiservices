@@ -27,12 +27,15 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content={metadata.description ?? undefined} />
       </Head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        {children}
+        <div className="container mx-auto px-4 flex-1">
+          {children}
+        </div>
       </body>
     </html>
   );
