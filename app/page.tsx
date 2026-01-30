@@ -16,6 +16,7 @@ export default function Home() {
             Une question ? Un besoin spécifique ? Envoyez-nous un message.
           </p>
           <div className="space-y-4">
+            <p className="text-xl">📞 +223 74 13 20 32</p>
             <p className="text-xl">📞 +223 82 57 55 55</p>
             <p className="text-xl">📧 contact@sahel-multiservices.com</p>
             <p className="text-xl">📍 Niamana Bamako, Mali</p>
