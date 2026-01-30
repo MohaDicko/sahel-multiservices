@@ -1,7 +1,11 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
+import Features from "./components/Features";
+import About from "./components/About";
+import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -9,21 +13,11 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Services />
-      <section id="contact" className="py-24 bg-slate-900 text-white">
-        <div className="py-8 px-4 mx-auto max-w-screen-md text-center">
-          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-white">Contactez-nous</h2>
-          <p className="mb-8 font-light text-gray-400 sm:text-xl">
-            Une question ? Un besoin spécifique ? Envoyez-nous un message.
-          </p>
-          <div className="space-y-4">
-            <p className="text-xl">📞 +223 74 13 20 32</p>
-            <p className="text-xl">📞 +223 82 57 55 55</p>
-            <p className="text-xl">📧 contact@sahel-multiservices.com</p>
-            <p className="text-xl">📍 Niamana Bamako, Mali</p>
-          </div>
-        </div>
-      </section>
+      <Features />
+      <About />
+      <ContactForm />
       <Footer />
+      <WhatsAppButton />
     </main>
   );
 }

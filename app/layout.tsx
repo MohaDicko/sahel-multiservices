@@ -1,22 +1,20 @@
 import type { Metadata } from "next";
-import Head from "next/head";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Accueil – Sahel Multiservices",
   description:
     "Sahel Multiservices, leader en solutions numériques et services industriels, propose des prestations sur‑mesure : développement web & mobile, e‑commerce, trading, BTP et énergie. Nous allions expertise, innovation et accompagnement personnalisé pour transformer vos projets en succès durables.",
+  icons: {
+    icon: "/sahel-logo-v3.png?v=1",
+    apple: "/sahel-logo-v3.png?v=1",
+  },
 };
 
 export default function RootLayout({
@@ -26,16 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content={metadata.description ?? undefined} />
-      </Head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
-      >
-        <div className="container mx-auto px-4 flex-1">
-          {children}
-        </div>
+      <body className={`${inter.className} antialiased min-h-screen flex flex-col`}>
+        {children}
       </body>
     </html>
   );
