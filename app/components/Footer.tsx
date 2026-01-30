@@ -1,35 +1,88 @@
+import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+
 export default function Footer() {
     return (
-        <footer className="bg-slate-800 border-t-2 border-amber-500">
-            <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-                <div className="sm:flex sm:items-center sm:justify-between">
-                    <a href="#" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                        <img src="/sahel-logo-v3.png" className="h-8 w-auto" alt="Sahel Multiservices Logo" />
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">Sahel<span className="text-amber-500">Multiservices</span></span>
-                    </a>
-                    <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-300 sm:mb-0">
-                        <li>
-                            <a href="#" className="hover:text-amber-500 hover:underline me-4 md:me-6 transition-colors">À propos</a>
-                        </li>
-                        <li>
-                            <a href="#" className="hover:text-amber-500 hover:underline me-4 md:me-6 transition-colors">Politique de confidentialité</a>
-                        </li>
-                        <li>
-                            <a href="#" className="hover:text-amber-500 hover:underline me-4 md:me-6 transition-colors">Licensing</a>
-                        </li>
-                        <li>
-                            <a href="#contact" className="hover:text-amber-500 hover:underline transition-colors">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <hr className="my-6 border-gray-600 sm:mx-auto lg:my-8" />
-                <div className="flex flex-col items-center gap-2 text-sm text-gray-300">
-                    <div className="flex flex-wrap justify-center gap-4 mb-2">
-                        <span className="font-medium">RCC: <span className="text-amber-400">32502529582040R</span></span>
-                        <span className="hidden sm:inline text-amber-500">•</span>
-                        <span className="font-medium">NIF: <span className="text-amber-400">NIF00560521 H</span></span>
+        <footer className="bg-slate-900 text-gray-300 border-t border-slate-800">
+            <div className="mx-auto w-full max-w-screen-xl p-4 py-12 lg:py-16">
+                <div className="md:flex md:justify-between gap-12">
+                    {/* Brand Section */}
+                    <div className="mb-12 md:mb-0 max-w-sm">
+                        <a href="#" className="flex items-center mb-6">
+                            <img src="/sahel-logo-v3.png" className="h-10 me-3" alt="Sahel Logo" />
+                            <span className="self-center text-2xl font-bold whitespace-nowrap text-white">
+                                Sahel<span className="text-amber-500">Multiservices</span>
+                            </span>
+                        </a>
+                        <p className="text-gray-400 mb-6 leading-relaxed">
+                            Votre partenaire de confiance au Sahel pour des solutions innovantes en digital, BTP, énergie et commerce. Expertise locale, standards internationaux.
+                        </p>
+                        <div className="flex gap-4">
+                            <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300">
+                                <Facebook className="w-5 h-5" />
+                            </a>
+                            <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300">
+                                <Linkedin className="w-5 h-5" />
+                            </a>
+                            <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all duration-300">
+                                <Instagram className="w-5 h-5" />
+                            </a>
+                        </div>
                     </div>
-                    <span className="block text-sm text-gray-400 sm:text-center">© 2024 <a href="#" className="hover:text-amber-500 transition-colors font-medium">Sahel Multiservices™</a>. Tous droits réservés.</span>
+
+                    <div className="grid grid-cols-2 gap-8 sm:gap-12 sm:grid-cols-3 flex-1">
+                        {/* Services Link */}
+                        <div>
+                            <h2 className="mb-6 text-sm font-bold text-white uppercase tracking-wider">Services</h2>
+                            <ul className="text-gray-400 font-medium space-y-4">
+                                <li><a href="#services" className="hover:text-amber-500 transition-colors">Digital & Technologie</a></li>
+                                <li><a href="#services" className="hover:text-amber-500 transition-colors">GPS Fleet Sahel</a></li>
+                                <li><a href="#services" className="hover:text-amber-500 transition-colors">BTP & Génie Civil</a></li>
+                                <li><a href="#services" className="hover:text-amber-500 transition-colors">Énergie & Pétrole</a></li>
+                            </ul>
+                        </div>
+
+                        {/* Quick Links */}
+                        <div>
+                            <h2 className="mb-6 text-sm font-bold text-white uppercase tracking-wider">Liens Rapides</h2>
+                            <ul className="text-gray-400 font-medium space-y-4">
+                                <li><a href="#" className="hover:text-amber-500 transition-colors">Accueil</a></li>
+                                <li><a href="#about" className="hover:text-amber-500 transition-colors">À propos</a></li>
+                                <li><a href="#contact" className="hover:text-amber-500 transition-colors">Contact</a></li>
+                                <li><a href="#" className="hover:text-amber-500 transition-colors">Actualités</a></li>
+                            </ul>
+                        </div>
+
+                        {/* Contact Info Footer */}
+                        <div>
+                            <h2 className="mb-6 text-sm font-bold text-white uppercase tracking-wider">Nous Trouver</h2>
+                            <ul className="text-gray-400 font-medium space-y-4">
+                                <li className="flex gap-3">
+                                    <MapPin className="w-5 h-5 text-amber-500 shrink-0" />
+                                    <span>Niamana, Bamako, Mali</span>
+                                </li>
+                                <li className="flex gap-3">
+                                    <Phone className="w-5 h-5 text-amber-500 shrink-0" />
+                                    <span>+223 74 13 20 32</span>
+                                </li>
+                                <li className="flex gap-3">
+                                    <Mail className="w-5 h-5 text-amber-500 shrink-0" />
+                                    <span className="text-sm">contact@sahel-multiservices.com</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <hr className="my-8 border-slate-800 lg:my-10" />
+
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <div className="flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-widest">
+                        <span className="px-3 py-1 bg-slate-800 rounded-full border border-slate-700">RCC: <span className="text-amber-400">32502529582040R</span></span>
+                        <span className="px-3 py-1 bg-slate-800 rounded-full border border-slate-700">NIF: <span className="text-amber-400">NIF00560521 H</span></span>
+                    </div>
+                    <div className="text-sm text-gray-500">
+                        © 2024 <a href="#" className="hover:text-white transition-colors">Sahel Multiservices™</a>. Tous droits réservés.
+                    </div>
                 </div>
             </div>
         </footer>
