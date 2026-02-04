@@ -1,15 +1,26 @@
 "use client";
 import ScrollReveal from './ScrollReveal';
-import { Send, Phone, Mail, MapPin } from 'lucide-react';
-import { useState } from 'react';
+import { Send, Phone, Mail, MapPin, Check } from 'lucide-react';
+import { useSearchParams, usePathname } from 'next/navigation';
+import { useState, useEffect } from 'react';
 
 export default function ContactForm() {
     const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+    const pathname = usePathname();
+    const [subject, setSubject] = useState('');
+
+    useEffect(() => {
+        if (pathname.includes('/digital')) setSubject('Demande de projet Digital');
+        else if (pathname.includes('/commerce')) setSubject('Consultation Commerce & Négoce');
+        else if (pathname.includes('/btp')) setSubject('Demande de devis BTP');
+        else if (pathname.includes('/energie')) setSubject('Services Énergie & Pétrole');
+        else setSubject('');
+    }, [pathname]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus('sending');
-        // Simulation d'envoi
+        // Simulation d'envoi avec les données (pour démonstration)
         setTimeout(() => setStatus('success'), 1500);
     };
 
@@ -72,59 +83,85 @@ export default function ContactForm() {
                         </ScrollReveal>
                     </div>
 
-                    {/* Form */}
                     <ScrollReveal animation="reveal-right" delay="reveal-delay-200">
-                        <form onSubmit={handleSubmit} className="bg-slate-800/50 p-8 md:p-10 rounded-3xl border border-slate-700/50 shadow-2xl">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-400 mb-2">Nom complet</label>
+                        {status === 'success' ? (
+                            <div className="bg-slate-800/50 p-10 rounded-3xl border border-green-500/30 text-center flex flex-col items-center justify-center min-h-[400px] animate-fade-in">
+                                <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-6">
+                                    <Check className="w-10 h-10 text-green-500" />
+                                </div>
+                                <h4 className="text-2xl font-bold text-white mb-2">Message Envoyé !</h4>
+                                <p className="text-gray-400 mb-8 max-w-sm mx-auto">
+                                    Merci de nous avoir contactés. Notre équipe vous répondra dans les plus brefs délais (généralement sous 24h).
+                                </p>
+                                <button
+                                    onClick={() => setStatus('idle')}
+                                    className="px-8 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-xl transition-colors font-medium"
+                                >
+                                    Envoyer un autre message
+                                </button>
+                            </div>
+                        ) : (
+                            <form onSubmit={handleSubmit} className="bg-slate-800/50 p-8 md:p-10 rounded-3xl border border-slate-700/50 shadow-2xl">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-400 mb-2">Nom complet</label>
+                                        <input
+                                            type="text"
+                                            required
+                                            className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors"
+                                            placeholder="Ex: Amadou Diallo"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                                        <input
+                                            type="email"
+                                            required
+                                            className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors"
+                                            placeholder="amadou@email.com"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="mb-6">
+                                    <label className="block text-sm font-medium text-gray-400 mb-2">Sujet</label>
                                     <input
                                         type="text"
                                         required
+                                        value={subject}
+                                        onChange={(e) => setSubject(e.target.value)}
                                         className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors"
-                                        placeholder="Ex: Amadou Diallo"
+                                        placeholder="Comment pouvons-nous vous aider ?"
                                     />
                                 </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-400 mb-2">Email</label>
-                                    <input
-                                        type="email"
+                                <div className="mb-8">
+                                    <label className="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                                    <textarea
+                                        rows={4}
                                         required
-                                        className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors"
-                                        placeholder="amadou@email.com"
-                                    />
+                                        className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors resize-none"
+                                        placeholder="Votre message ici..."
+                                    ></textarea>
                                 </div>
-                            </div>
-                            <div className="mb-6">
-                                <label className="block text-sm font-medium text-gray-400 mb-2">Sujet</label>
-                                <input
-                                    type="text"
-                                    required
-                                    className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors"
-                                    placeholder="Comment pouvons-nous vous aider ?"
-                                />
-                            </div>
-                            <div className="mb-8">
-                                <label className="block text-sm font-medium text-gray-400 mb-2">Message</label>
-                                <textarea
-                                    rows={4}
-                                    required
-                                    className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors resize-none"
-                                    placeholder="Votre message ici..."
-                                ></textarea>
-                            </div>
 
-                            <button
-                                type="submit"
-                                disabled={status === 'sending' || status === 'success'}
-                                className={`w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all duration-300 transform active:scale-95 ${status === 'success' ? 'bg-green-500 text-white' : 'bg-amber-500 hover:bg-amber-600 text-white shadow-lg shadow-amber-500/20'
-                                    }`}
-                            >
-                                {status === 'idle' && <><Send className="w-5 h-5" /> Envoyer le message</>}
-                                {status === 'sending' && <>Envoi en cours...</>}
-                                {status === 'success' && <>Message envoyé avec succès !</>}
-                            </button>
-                        </form>
+                                <button
+                                    type="submit"
+                                    disabled={status === 'sending'}
+                                    className={`w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all duration-300 transform active:scale-95 bg-amber-500 hover:bg-amber-600 text-white shadow-lg shadow-amber-500/20 disabled:opacity-70 disabled:cursor-not-allowed`}
+                                >
+                                    {status === 'sending' ? (
+                                        <div className="flex items-center gap-3">
+                                            <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                            </svg>
+                                            Envoi en cours...
+                                        </div>
+                                    ) : (
+                                        <><Send className="w-5 h-5" /> Envoyer le message</>
+                                    )}
+                                </button>
+                            </form>
+                        )}
                     </ScrollReveal>
                 </div>
             </div>

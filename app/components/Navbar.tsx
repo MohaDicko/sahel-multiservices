@@ -6,29 +6,38 @@ import { Menu, X, Phone } from 'lucide-react';
 export default function Navbar() {
   const [navOpen, setNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Handle scroll for navbar appearance
+  // Handle scroll for navbar appearance and progress
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+
+      // Calculate scroll progress
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      setScrollProgress(scrolled);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'Accueil', href: '#' },
-    { name: 'Services', href: '#services' },
-    { name: 'Pourquoi nous ?', href: '#features' },
-    { name: 'À propos', href: '#about' },
+    { name: 'Accueil', href: '/' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Pourquoi nous ?', href: '/#features' },
+    { name: 'À propos', href: '/#about' },
     { name: 'Contact', href: '#contact' },
   ];
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled
-        ? "bg-slate-900/90 backdrop-blur-lg py-2 shadow-lg border-b border-white/5"
-        : "bg-transparent py-4"
+      ? "bg-slate-900/90 backdrop-blur-lg py-2 shadow-lg border-b border-white/5"
+      : "bg-transparent py-4"
       }`}>
+      {/* Scroll Progress Bar */}
+      <div className="absolute bottom-0 left-0 h-[2px] bg-amber-500 transition-all duration-150 z-50" style={{ width: `${scrollProgress}%` }}></div>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3 group">

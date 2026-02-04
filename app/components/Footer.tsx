@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
@@ -34,10 +35,11 @@ export default function Footer() {
                         <div>
                             <h2 className="mb-6 text-sm font-bold text-white uppercase tracking-wider">Services</h2>
                             <ul className="text-gray-400 font-medium space-y-4">
-                                <li><a href="#services" className="hover:text-amber-500 transition-colors">Digital & Technologie</a></li>
-                                <li><a href="#services" className="hover:text-amber-500 transition-colors">GPS Fleet Sahel</a></li>
-                                <li><a href="#services" className="hover:text-amber-500 transition-colors">BTP & Génie Civil</a></li>
-                                <li><a href="#services" className="hover:text-amber-500 transition-colors">Énergie & Pétrole</a></li>
+                                <li><Link href="/digital" className="hover:text-amber-500 transition-colors">Digital & Technologie</Link></li>
+                                <li><a href="http://gpsfleetsahel.com/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 transition-colors">GPS Fleet Sahel</a></li>
+                                <li><Link href="/commerce" className="hover:text-amber-500 transition-colors">Commerce & Négoce</Link></li>
+                                <li><Link href="/btp" className="hover:text-amber-500 transition-colors">BTP & Génie Civil</Link></li>
+                                <li><Link href="/energie" className="hover:text-amber-500 transition-colors">Énergie & Pétrole</Link></li>
                             </ul>
                         </div>
 

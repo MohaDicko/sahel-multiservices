@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ScrollReveal from './ScrollReveal';
 import { Code, HardHat, Droplet, Handshake, Navigation } from 'lucide-react';
 
@@ -6,7 +7,7 @@ const services = [
         title: "Technologie & Digital",
         description: "Développement de sites web, applications mobiles et solutions logicielles sur mesure.",
         icon: Code,
-        link: null,
+        link: "/digital",
     },
     {
         title: "GPS Fleet Sahel",
@@ -18,19 +19,19 @@ const services = [
         title: "Commerce & Négoce",
         description: "Import-export, distribution et intermédiation commerciale à l'échelle internationale.",
         icon: Handshake,
-        link: null,
+        link: "/commerce",
     },
     {
         title: "BTP & Infrastructures",
         description: "Construction, génie civil et travaux publics pour vos grands projets.",
         icon: HardHat,
-        link: null,
+        link: "/btp",
     },
     {
         title: "Énergie & Pétrole",
         description: "Solutions dans le secteur des hydrocarbures et approvisionnement énergétique.",
         icon: Droplet,
-        link: null,
+        link: "/energie",
     },
 ];
 
@@ -65,17 +66,29 @@ export default function Services() {
                                         {service.description}
                                     </p>
                                     {service.link && (
-                                        <a
-                                            href={service.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-medium transition-all duration-300 hover:gap-3 gap-2"
-                                        >
-                                            Visiter le site
-                                            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                            </svg>
-                                        </a>
+                                        service.link.startsWith('/') ? (
+                                            <Link
+                                                href={service.link}
+                                                className="inline-flex items-center text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-medium transition-all duration-300 hover:gap-3 gap-2"
+                                            >
+                                                Visiter le site
+                                                <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                </svg>
+                                            </Link>
+                                        ) : (
+                                            <a
+                                                href={service.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-medium transition-all duration-300 hover:gap-3 gap-2"
+                                            >
+                                                Visiter le site
+                                                <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                </svg>
+                                            </a>
+                                        )
                                     )}
                                 </div>
                             </div>
