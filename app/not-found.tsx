@@ -1,3 +1,4 @@
+"use client";
 import Link from 'next/link';
 import { Home, ChevronLeft } from 'lucide-react';
 import Navbar from './components/Navbar';
