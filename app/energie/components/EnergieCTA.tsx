@@ -14,10 +14,10 @@ export default function EnergieCTA() {
                 <ScrollReveal animation="reveal-up">
                     <div className="max-w-4xl mx-auto bg-white/5 border border-white/10 backdrop-blur-sm p-12 md:p-16 rounded-[2rem] shadow-3xl">
                         <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight">
-                            Besoin d'un <br /><span className="text-sahel-bronze">Approvisionnement ?</span>
+                            Besoin d&apos;un <br /><span className="text-sahel-bronze">Approvisionnement ?</span>
                         </h2>
                         <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-                            Qu'il s'agisse de combustibles industriels ou de solutions énergétiques globales, notre équipe logistique est disponible 24/7 pour traiter vos demandes.
+                            Qu&apos;il s&apos;agisse de combustibles industriels ou de solutions énergétiques globales, notre équipe logistique est disponible 24/7 pour traiter vos demandes.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-6 justify-center">

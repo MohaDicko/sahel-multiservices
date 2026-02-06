@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import ScrollReveal from '../../components/ScrollReveal';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const projects = [
     {

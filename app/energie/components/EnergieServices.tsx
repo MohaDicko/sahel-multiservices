@@ -13,14 +13,14 @@ const services = [
     },
     {
         title: "Solutions Énergétiques",
-        description: "Installation de groupes électrogènes haute performance et solutions d'énergie hybride pour sites isolés.",
+        description: "Installation de groupes électrogènes haute performance et solutions d&apos;énergie hybride pour sites isolés.",
         icon: Zap,
         color: "text-amber-500",
         bg: "bg-amber-500/10"
     },
     {
         title: "Gestion de Dépôts",
-        description: "Maintenance et exploitation d'installations de stockage de produits pétroliers sécurisées.",
+        description: "Maintenance et exploitation d&apos;installations de stockage de produits pétroliers sécurisées.",
         icon: Factory,
         color: "text-slate-400",
         bg: "bg-slate-400/10"
@@ -60,7 +60,7 @@ export default function EnergieServices() {
                         <h2 className="text-sm font-bold tracking-[0.3em] text-sahel-gold uppercase mb-4">Notre Expertise</h2>
                         <h3 className="text-3xl md:text-5xl font-bold text-white mb-6">Expertise Complète en Hydrocarbures</h3>
                         <p className="text-slate-400 text-lg">
-                            Nous fournissons l'énergie nécessaire pour faire tourner les industries et soutenir le développement économique régional.
+                            Nous fournissons l&apos;énergie nécessaire pour faire tourner les industries et soutenir le développement économique régional.
                         </p>
                     </div>
                 </ScrollReveal>
