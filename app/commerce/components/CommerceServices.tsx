@@ -55,7 +55,7 @@ export default function CommerceServices() {
                         <ScrollReveal
                             key={index}
                             animation="reveal-up"
-                            delay={(`reveal-delay-${((index % 6) * 100)}` as any)}
+                            delay={(`reveal-delay-${((index % 6) * 100)}`)}
                         >
                             <div className="bg-white p-8 shadow-sm hover:shadow-xl transition-all duration-300 border-b-4 border-transparent hover:border-amber-500 group">
                                 <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-amber-500 transition-colors duration-300">
@@ -75,3 +75,4 @@ export default function CommerceServices() {
         </section>
     );
 }
+

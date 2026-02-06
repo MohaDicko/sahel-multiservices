@@ -1,19 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F9F7F2;
+  /* Harmattan White - soft and sandy */
+  --foreground: #0F172A;
+  /* Indigo Niger - Deep and authoritative */
+  --primary: #C2410C;
+  /* Terre de Ségou - Bronze/Burnt Orange */
+  --secondary: #0F172A;
+  /* Indigo Niger */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-sahel-sand: #F9F7F2;
+  --color-sahel-navy: #0F172A;
+  --color-sahel-bronze: #C2410C;
+  --color-sahel-gold: #B45309;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0F172A;
+    /* Indigo Niger Background for Dark Mode */
+    --foreground: #F9F7F2;
+    /* Harmattan White Text */
   }
 }
 

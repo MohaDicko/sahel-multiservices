@@ -17,18 +17,18 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Sahel Multiservices – Expertise Pan-Sahélienne & Innovation",
-    template: "%s | Sahel Multiservices"
+    default: "Groupe Sahel – Expertise Pan-Sahélienne & Innovation",
+    template: "%s | Groupe Sahel"
   },
   description: "Référence multiservices au Mali et dans tout le Sahel. Solutions expertes en BTP, Technologie, Énergie et Négoce International pour le développement régional.",
   keywords: [
-    "Sahel Multiservices", "BTP Mali", "Digital Sahel", "Énergie Afrique de l'Ouest",
+    "Groupe Sahel", "BTP Mali", "Digital Sahel", "Énergie Afrique de l'Ouest",
     "Négoce Regional", "Export Mali", "Logistique Sahel", "Bamako", "Gao", "Mopti",
     "Kayes", "Ségou", "Sikasso", "Kidal", "Tombouctou", "Mali", "Sahel", "UEMOA", "CEDEAO"
   ],
-  authors: [{ name: "Sahel Multiservices" }],
-  creator: "Sahel Multiservices",
-  publisher: "Sahel Multiservices",
+  authors: [{ name: "Groupe Sahel" }],
+  creator: "Groupe Sahel",
+  publisher: "Groupe Sahel",
   formatDetection: {
     email: false,
     address: false,
@@ -47,21 +47,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: "https://sahel-multiservices.com",
-    siteName: "Sahel Multiservices",
-    title: "Sahel Multiservices – Développer le Mali, Connecter le Sahel",
+    siteName: "Groupe Sahel",
+    title: "Groupe Sahel – Développer le Mali, Connecter le Sahel",
     description: "Votre partenaire de confiance pour des projets d'envergure dans toute la région sahélienne.",
     images: [
       {
         url: "/sahel-logo-v3.png",
         width: 1200,
         height: 630,
-        alt: "Sahel Multiservices - Mali & Sahel",
+        alt: "Groupe Sahel - Mali & Sahel",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sahel Multiservices - Expert Sahel",
+    title: "Groupe Sahel - Expert Sahel",
     description: "Solutions industrielles et digitales pour le Mali et l'espace Sahélien.",
     images: ["/sahel-logo-v3.png"],
   },
@@ -75,7 +75,7 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Sahel Multiservices",
+    "name": "Groupe Sahel",
     "image": "https://sahel-multiservices.com/sahel-logo-v3.png",
     "@id": "https://sahel-multiservices.com",
     "url": "https://sahel-multiservices.com",
@@ -103,7 +103,7 @@ export default function RootLayout({
 
   return (
     <html lang="fr">
-      <body className={`${inter.className} antialiased min-h-screen flex flex-col`}>
+      <body className={`${inter.className} antialiased bg-sahel-sand text-sahel-navy selection:bg-sahel-bronze selection:text-white min-h-screen flex flex-col`}>
         <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID || ""} />
         <script
           type="application/ld+json"

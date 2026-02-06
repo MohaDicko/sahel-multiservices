@@ -16,7 +16,7 @@ export default function CommerceStats() {
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-amber-500/30">
                     {stats.map((stat, index) => (
-                        <ScrollReveal key={index} animation="reveal-scale" delay={(`reveal-delay-${index * 100}` as any)}>
+                        <ScrollReveal key={index} animation="reveal-scale" delay={(`reveal-delay-${index * 100}`)}>
                             <div className="p-4">
                                 <div className="text-4xl md:text-5xl font-extrabold mb-2">
                                     {typeof stat.value === 'number' ? (
@@ -34,3 +34,4 @@ export default function CommerceStats() {
         </section>
     );
 }
+

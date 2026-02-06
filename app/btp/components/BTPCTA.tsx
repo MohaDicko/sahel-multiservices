@@ -6,7 +6,7 @@ import { PhoneCall } from 'lucide-react';
 
 export default function BTPCTA() {
     return (
-        <section className="py-24 bg-orange-600 relative overflow-hidden">
+        <section className="py-24 bg-sahel-bronze relative overflow-hidden">
             {/* Background Texture */}
             <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
 
@@ -23,7 +23,7 @@ export default function BTPCTA() {
                         <div className="flex flex-col sm:flex-row gap-6 justify-center">
                             <Link
                                 href="#contact"
-                                className="px-10 py-5 bg-white text-orange-600 font-bold text-lg uppercase tracking-wide transition-transform transform hover:scale-105 shadow-2xl shadow-slate-900/20 flex items-center justify-center gap-3"
+                                className="px-10 py-5 bg-white text-sahel-bronze font-bold text-lg uppercase tracking-wide transition-transform transform hover:scale-105 shadow-2xl shadow-sahel-navy/40 flex items-center justify-center gap-3"
                             >
                                 <PhoneCall className="w-5 h-5" />
                                 Discuter avec un ingénieur

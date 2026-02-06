@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: 'Sahel Multiservices',
-        short_name: 'Sahel Multi',
+        name: 'Groupe Sahel',
+        short_name: 'Groupe Sahel',
         description: 'Leader multiservices au Sahel : BTP, Digital, Énergie & Commerce.',
         start_url: '/',
         display: 'standalone',

@@ -31,7 +31,7 @@ export default function About() {
                 <ScrollReveal animation="reveal-up">
                     <div className="mx-auto max-w-screen-md text-center mb-12 lg:mb-16">
                         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                            À Propos de <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Sahel Multiservices</span>
+                            À Propos de <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Groupe Sahel</span>
                         </h2>
                         <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
                             Depuis notre création, nous nous positionnons comme un acteur majeur du développement économique au Sahel,
@@ -45,7 +45,7 @@ export default function About() {
                         <ScrollReveal
                             key={index}
                             animation={index % 2 === 0 ? "reveal-left" : "reveal-right"}
-                            delay={(`reveal-delay-${(index * 100 + 100)}` as any)}
+                            delay={(`reveal-delay-${(index * 100 + 100)}`)}
                         >
                             <div className="flex h-full gap-4 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-l-4 border-amber-500">
                                 <div className="flex-shrink-0">
@@ -71,7 +71,7 @@ export default function About() {
                         <h3 className="text-3xl font-bold mb-4">Votre Partenaire de Confiance</h3>
                         <p className="text-lg mb-6 text-amber-50">
                             Que ce soit pour vos besoins en technologie, construction, commerce ou énergie,
-                            Sahel Multiservices met son expertise à votre service pour concrétiser vos ambitions.
+                            Groupe Sahel met son expertise à votre service pour concrétiser vos ambitions.
                         </p>
                         <div className="flex flex-wrap justify-center gap-8 mt-8">
                             <div className="text-center">
@@ -93,3 +93,4 @@ export default function About() {
         </section>
     );
 }
+

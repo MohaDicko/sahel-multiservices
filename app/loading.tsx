@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 
 export default function Loading() {
     return (
@@ -11,10 +12,12 @@ export default function Loading() {
                 {/* Logo Container */}
                 <div className="relative bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-2xl flex flex-col items-center">
                     <div className="w-20 h-20 mb-6 relative">
-                        <img
+                        <Image
                             src="/sahel-logo-v3.png"
-                            alt="Sahel Multiservices Logo"
-                            className="w-full h-full object-contain animate-bounce"
+                            alt="Groupe Sahel Logo"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 80px"
+                            className="object-contain animate-bounce"
                         />
                     </div>
 
@@ -24,7 +27,7 @@ export default function Loading() {
                     </div>
 
                     <p className="mt-4 text-xs font-bold tracking-[0.3em] text-amber-500 uppercase animate-pulse">
-                        Sahel Multiservices
+                        Groupe Sahel
                     </p>
                 </div>
             </div>

@@ -10,7 +10,7 @@ const faqs = [
     },
     {
         question: "Proposez-vous des services en dehors de Bamako ?",
-        answer: "Oui, Sahel Multiservices intervient sur l'ensemble du territoire national malien et peut également accompagner des projets dans la sous-région (Sénégal, Burkina Faso, Niger)."
+        answer: "Oui, Groupe Sahel intervient sur l'ensemble du territoire national malien et peut également accompagner des projets dans la sous-région (Sénégal, Burkina Faso, Niger)."
     },
     {
         question: "Comment puis-je obtenir un devis personnalisé ?",
@@ -45,7 +45,7 @@ export default function FAQ() {
                         <ScrollReveal
                             key={index}
                             animation="reveal-up"
-                            delay={(`reveal-delay-${index * 100 + 100}` as any)}
+                            delay={(`reveal-delay-${index * 100 + 100}`)}
                         >
                             <div className="border border-gray-100 dark:border-gray-800 rounded-2xl overflow-hidden hover:border-amber-500/30 transition-colors">
                                 <button
@@ -77,3 +77,4 @@ export default function FAQ() {
         </section>
     );
 }
+

@@ -5,7 +5,7 @@ const testimonials = [
     {
         name: "Ibrahim Traoré",
         role: "Directeur Logistique",
-        content: "Sahel Multiservices nous a accompagnés pour l'installation de notre système GPS. Leur expertise technique et leur réactivité sont impressionnantes.",
+        content: "Groupe Sahel nous a accompagnés pour l'installation de notre système GPS. Leur expertise technique et leur réactivité sont impressionnantes.",
         initials: "IT"
     },
     {
@@ -43,7 +43,7 @@ export default function Testimonials() {
                         <ScrollReveal
                             key={index}
                             animation="reveal-up"
-                            delay={(`reveal-delay-${index * 100 + 100}` as any)}
+                            delay={(`reveal-delay-${index * 100 + 100}`)}
                         >
                             <div className="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 relative h-full flex flex-col">
                                 <Quote className="absolute top-6 right-8 w-10 h-10 text-amber-500/10" />
@@ -75,3 +75,4 @@ export default function Testimonials() {
         </section>
     );
 }
+

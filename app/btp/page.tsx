@@ -12,13 +12,13 @@ import { Metadata } from 'next';
 import { Construction } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: "Sahel BTP – Construction & Génie Civil",
-    description: "Expert en construction, routes et ouvrages d'art au Sahel. Bâtissons durablement.",
+    title: "Sahel Infra – Construction & Génie Civil",
+    description: "Sahel Infra : Expert en construction, routes et ouvrages d'art au Sahel. Bâtissons durablement.",
     alternates: {
         canonical: "https://sahel-multiservices.com/btp",
     },
     openGraph: {
-        title: "Sahel BTP | Construction & Infrastructures",
+        title: "Sahel Infra | Construction & Infrastructures",
         description: "Rigueur technique et excellence opérationnelle pour vos chantiers au Sahel.",
         images: ["https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"]
     }
@@ -26,26 +26,25 @@ export const metadata: Metadata = {
 
 export default function BTPPage() {
     return (
-        <main className="min-h-screen bg-slate-50 selection:bg-orange-500 selection:text-white">
+        <main className="min-h-screen bg-sahel-navy text-white selection:bg-sahel-bronze selection:text-white">
             <Navbar />
-            <Breadcrumbs items={[{ label: 'BTP & Infrastructures' }]} theme="light" />
+            <Breadcrumbs items={[{ label: 'Sahel Infra' }]} />
             <PageHero
-                theme="light"
-                badge={{ label: "Génie Civil & Bâtiment", icon: Construction, colorClass: "bg-orange-600/20 border-orange-500/30 text-orange-600" }}
-                title={<>Bâtir l'Avenir du <br /><span className="text-orange-600">Sahel, Pierre par Pierre</span></>}
-                description="Expertise technique, rigueur et innovation pour vos projets d'infrastructures et de construction. Nous façonnons les paysages urbains et ruraux de demain."
+                badge={{ label: "Génie Civil & Bâtiment", icon: Construction, colorClass: "bg-sahel-bronze/10 border-sahel-bronze/20 text-sahel-bronze" }}
+                title={<>Bâtir l'Avenir du <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-sahel-bronze via-amber-600 to-sahel-gold">Sahel, Pierre par Pierre</span></>}
+                description="Avec Sahel Infra, bénéficiez d'une expertise technique, rigueur et innovation pour vos projets d'infrastructures et de construction."
                 imageSrc="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
                 imageAlt="Chantier de construction BTP"
                 ctaPrimary={{ label: "Démarrer un projet", href: "#contact" }}
                 ctaSecondary={{ label: "Nos Réalisations", href: "#projects" }}
-                overlayGradient="from-white/90 via-white/40 to-white/10"
+                overlayGradient="from-sahel-navy/90 via-sahel-navy/50 to-sahel-navy"
             />
             <BTPServices />
             <BTPProjects />
             <BTPStats />
             <BTPCTA />
 
-            <div className="bg-slate-900 border-t border-slate-800">
+            <div className="bg-sahel-navy border-t border-white/5">
                 <ContactForm />
             </div>
 

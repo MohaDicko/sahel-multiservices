@@ -14,7 +14,7 @@ export default function Hero() {
                     Leader du <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Multi-Services</span> au Sahel
                 </h1>
                 <p className="mb-8 text-lg font-normal text-gray-400 lg:text-xl sm:px-16 xl:px-48 animate-fade-in-up delay-200">
-                    De la technologie au BTP, en passant par le négoce et l'énergie. Sahel Multiservices est votre partenaire stratégique global.
+                    De la technologie au BTP, en passant par le négoce et l'énergie. Groupe Sahel est votre partenaire stratégique global.
                 </p>
                 <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 animate-fade-in-up delay-300">
                     <a href="#services" className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-amber-600 hover:bg-amber-700 focus:ring-4 focus:ring-amber-300 dark:focus:ring-amber-900 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-amber-600/50">

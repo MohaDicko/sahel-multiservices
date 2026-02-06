@@ -24,7 +24,7 @@ export default function NotFound() {
                             Page <span className="text-amber-500">Introuvable</span>
                         </h2>
                         <p className="text-slate-400 text-lg mb-10 leading-relaxed font-light">
-                            Il semble que le chemin que vous avez emprunté n'existe pas ou a été déplacé.
+                            Il semble que le chemin que vous avez emprunté n&apos;existe pas ou a été déplacé.
                             Ne vous inquiétez pas, nos experts travaillent sur le terrain, pas sur cette page !
                         </p>
 
@@ -34,7 +34,7 @@ export default function NotFound() {
                                 className="w-full sm:w-auto flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl shadow-amber-500/20"
                             >
                                 <Home className="w-5 h-5" />
-                                Retour à l'accueil
+                                Retour à l&apos;accueil
                             </Link>
                             <button
                                 onClick={() => window.history.back()}

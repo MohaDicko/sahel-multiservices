@@ -8,8 +8,8 @@ const services = [
         title: "Approvisionnement Pétrolier",
         description: "Importation et fourniture de carburants (Essence, Gasoil, Jet A1) selon les standards internationaux.",
         icon: Fuel,
-        color: "text-blue-500",
-        bg: "bg-blue-500/10"
+        color: "text-sahel-gold",
+        bg: "bg-sahel-gold/10"
     },
     {
         title: "Solutions Énergétiques",
@@ -29,8 +29,8 @@ const services = [
         title: "Lubrifiants Industriels",
         description: "Distribution de lubrifiants spécialisés pour optimiser la longévité de vos équipements industriels.",
         icon: Droplets,
-        color: "text-cyan-500",
-        bg: "bg-cyan-500/10"
+        color: "text-sahel-bronze",
+        bg: "bg-sahel-bronze/10"
     },
     {
         title: "Logistique Pétrolière",
@@ -50,14 +50,14 @@ const services = [
 
 export default function EnergieServices() {
     return (
-        <section id="services" className="py-24 bg-slate-900 overflow-hidden relative">
+        <section id="services" className="py-24 bg-sahel-navy overflow-hidden relative">
             {/* Background pattern */}
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5"></div>
 
             <div className="container mx-auto px-4 relative z-10">
                 <ScrollReveal animation="reveal-up">
                     <div className="text-center max-w-3xl mx-auto mb-20">
-                        <h2 className="text-sm font-bold tracking-[0.3em] text-blue-500 uppercase mb-4">Notre Expertise</h2>
+                        <h2 className="text-sm font-bold tracking-[0.3em] text-sahel-gold uppercase mb-4">Notre Expertise</h2>
                         <h3 className="text-3xl md:text-5xl font-bold text-white mb-6">Expertise Complète en Hydrocarbures</h3>
                         <p className="text-slate-400 text-lg">
                             Nous fournissons l'énergie nécessaire pour faire tourner les industries et soutenir le développement économique régional.
@@ -70,13 +70,13 @@ export default function EnergieServices() {
                         <ScrollReveal
                             key={index}
                             animation="reveal-up"
-                            delay={(`reveal-delay-${((index % 6) * 100)}` as any)}
+                            delay={(`reveal-delay-${((index % 6) * 100)}`)}
                         >
-                            <div className="group h-full p-8 rounded-2xl bg-slate-800/40 border border-slate-700 hover:border-blue-500/50 transition-all duration-500 hover:bg-slate-800/60 shadow-lg">
+                            <div className="group h-full p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-sahel-bronze/50 transition-all duration-500 hover:bg-white/10 shadow-lg">
                                 <div className={`w-16 h-16 rounded-xl ${service.bg} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500`}>
                                     <service.icon className={`w-8 h-8 ${service.color}`} />
                                 </div>
-                                <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+                                <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-sahel-gold transition-colors">
                                     {service.title}
                                 </h4>
                                 <p className="text-slate-400 leading-relaxed font-light">
@@ -90,3 +90,4 @@ export default function EnergieServices() {
         </section>
     );
 }
+

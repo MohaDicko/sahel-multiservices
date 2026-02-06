@@ -11,7 +11,7 @@ export default function Footer() {
                         <a href="#" className="flex items-center mb-6">
                             <img src="/sahel-logo-v3.png" className="h-10 me-3" alt="Sahel Logo" />
                             <span className="self-center text-2xl font-bold whitespace-nowrap text-white">
-                                Sahel<span className="text-amber-500">Multiservices</span>
+                                Groupe<span className="text-amber-500">Sahel</span>
                             </span>
                         </a>
                         <p className="text-gray-400 mb-6 leading-relaxed">
@@ -35,11 +35,11 @@ export default function Footer() {
                         <div>
                             <h2 className="mb-6 text-sm font-bold text-white uppercase tracking-wider">Services</h2>
                             <ul className="text-gray-400 font-medium space-y-4">
-                                <li><Link href="/digital" className="hover:text-amber-500 transition-colors">Digital & Technologie</Link></li>
+                                <li><Link href="/digital" className="hover:text-amber-500 transition-colors">Sahel Tech</Link></li>
                                 <li><a href="http://gpsfleetsahel.com/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 transition-colors">GPS Fleet Sahel</a></li>
-                                <li><Link href="/commerce" className="hover:text-amber-500 transition-colors">Commerce & Négoce</Link></li>
-                                <li><Link href="/btp" className="hover:text-amber-500 transition-colors">BTP & Génie Civil</Link></li>
-                                <li><Link href="/energie" className="hover:text-amber-500 transition-colors">Énergie & Pétrole</Link></li>
+                                <li><Link href="/commerce" className="hover:text-amber-500 transition-colors">Sahel Distribution</Link></li>
+                                <li><Link href="/btp" className="hover:text-amber-500 transition-colors">Sahel Infra</Link></li>
+                                <li><Link href="/energie" className="hover:text-amber-500 transition-colors">Sahel Energy</Link></li>
                             </ul>
                         </div>
 
@@ -83,7 +83,7 @@ export default function Footer() {
                         <span className="px-3 py-1 bg-slate-800 rounded-full border border-slate-700">NIF: <span className="text-amber-400">NIF00560521 H</span></span>
                     </div>
                     <div className="text-sm text-gray-500">
-                        © 2024 <a href="#" className="hover:text-white transition-colors">Sahel Multiservices™</a>. Tous droits réservés.
+                        © 2024 <a href="#" className="hover:text-white transition-colors">Groupe Sahel™</a>. Tous droits réservés.
                     </div>
                 </div>
             </div>

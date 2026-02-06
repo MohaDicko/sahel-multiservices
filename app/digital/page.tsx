@@ -13,13 +13,13 @@ import { Metadata } from 'next';
 import { MonitorSmartphone } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: "Sahel Digital – Solutions Technologiques & Développement",
+    title: "Sahel Tech – Solutions Technologiques & Développement",
     description: "Agence digitale au Sahel : Applications Mobiles, Développement Web et Logiciels SaaS sur mesure.",
     alternates: {
         canonical: "https://sahel-multiservices.com/digital",
     },
     openGraph: {
-        title: "Sahel Digital | Innovation Technologique",
+        title: "Sahel Tech | Innovation Technologique",
         description: "Transformez vos idées en solutions numériques performantes.",
         images: ["https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"]
     }
@@ -27,17 +27,18 @@ export const metadata: Metadata = {
 
 export default function DigitalPage() {
     return (
-        <main className="min-h-screen bg-slate-950 text-white selection:bg-blue-500 selection:text-white">
+        <main className="min-h-screen bg-sahel-navy text-white selection:bg-sahel-gold selection:text-sahel-navy">
             <Navbar />
-            <Breadcrumbs items={[{ label: 'Industrie Digital' }]} />
+            <Breadcrumbs items={[{ label: 'Sahel Tech' }]} />
             <PageHero
-                badge={{ label: "Nouvelle Ère Numérique", icon: MonitorSmartphone }}
-                title={<>Solutions Digitales <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-400">Pour le Futur</span></>}
-                description="Transformez vos idées en réalité avec Sahel Digital. Nous concevons des sites web performants, des applications mobiles intuitives et des logiciels sur mesure pour accélérer votre croissance."
+                badge={{ label: "Nouvelle Ère Numérique", icon: MonitorSmartphone, colorClass: "bg-sahel-bronze/10 border-sahel-bronze/20 text-sahel-bronze" }}
+                title={<>Solutions Digitales <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-sahel-gold via-amber-200 to-sahel-bronze">Pour le Futur</span></>}
+                description="Transformez vos idées en réalité avec Sahel Tech. Nous concevons des sites web performants, des applications mobiles intuitives et des logiciels sur mesure pour accélérer votre croissance."
                 imageSrc="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
                 imageAlt="Technologie et Digital"
                 ctaPrimary={{ label: "Démarrer mon projet", href: "#contact" }}
                 ctaSecondary={{ label: "Voir nos réalisations", href: "#portfolio" }}
+                overlayGradient="from-sahel-navy/90 via-sahel-navy/50 to-sahel-navy"
             />
             <DigitalServices />
             <DigitalProjects />
@@ -46,7 +47,7 @@ export default function DigitalPage() {
             <DigitalCTA />
 
             {/* Reusing the main contact form but contextually it fits since it's dark themed */}
-            <div className="bg-slate-950">
+            <div className="bg-sahel-navy border-t border-white/5">
                 <ContactForm />
             </div>
 

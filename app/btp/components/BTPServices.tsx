@@ -38,13 +38,13 @@ const services = [
 
 export default function BTPServices() {
     return (
-        <section id="services" className="py-24 bg-white">
+        <section id="services" className="py-24 bg-sahel-navy">
             <div className="container mx-auto px-4">
                 <ScrollReveal animation="reveal-up">
                     <div className="text-center max-w-3xl mx-auto mb-20">
-                        <div className="w-20 h-1 bg-orange-600 mx-auto mb-6"></div>
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 uppercase tracking-tight">Nos Compétences</h2>
-                        <p className="text-slate-600 text-lg font-light">
+                        <div className="w-20 h-1 bg-sahel-bronze mx-auto mb-6"></div>
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 uppercase tracking-tight">Nos Compétences</h2>
+                        <p className="text-slate-400 text-lg font-light">
                             Une maîtrise complète des métiers de la construction pour accompagner vos projets de A à Z.
                         </p>
                     </div>
@@ -55,16 +55,16 @@ export default function BTPServices() {
                         <ScrollReveal
                             key={index}
                             animation="reveal-up"
-                            delay={(`reveal-delay-${((index % 6) * 100)}` as any)}
+                            delay={(`reveal-delay-${((index % 6) * 100)}`)}
                         >
                             <div className="group relative">
-                                <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-orange-500 group-hover:w-full group-hover:h-full transition-all duration-500 ease-in-out"></div>
-                                <div className="p-8 bg-slate-50 hover:bg-white border border-slate-100 relative z-10 transition-colors">
-                                    <service.icon className="w-10 h-10 text-slate-700 mb-6 group-hover:text-orange-600 transition-colors" />
-                                    <h4 className="text-xl font-bold text-slate-900 mb-4 uppercase tracking-wide">
+                                <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-sahel-bronze group-hover:w-full group-hover:h-full transition-all duration-500 ease-in-out"></div>
+                                <div className="p-8 bg-white/5 hover:bg-white/10 border border-white/10 relative z-10 transition-colors">
+                                    <service.icon className="w-10 h-10 text-slate-400 mb-6 group-hover:text-sahel-gold transition-colors" />
+                                    <h4 className="text-xl font-bold text-white mb-4 uppercase tracking-wide">
                                         {service.title}
                                     </h4>
-                                    <p className="text-slate-600 leading-relaxed text-sm">
+                                    <p className="text-slate-400 leading-relaxed text-sm">
                                         {service.description}
                                     </p>
                                 </div>
@@ -76,3 +76,4 @@ export default function BTPServices() {
         </section>
     );
 }
+

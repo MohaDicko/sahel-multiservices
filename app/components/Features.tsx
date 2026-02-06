@@ -48,7 +48,7 @@ export default function Features() {
                         <ScrollReveal
                             key={index}
                             animation="reveal-up"
-                            delay={(`reveal-delay-${index * 100 + 100}` as any)}
+                            delay={(`reveal-delay-${index * 100 + 100}`)}
                         >
                             <div className="h-full group p-8 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl hover:bg-slate-800 transition-all duration-300 hover:border-amber-500/50 hover:-translate-y-2 shadow-xl">
                                 <div className="w-14 h-14 bg-amber-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-500 group-hover:rotate-6 transition-all duration-300">
@@ -85,3 +85,4 @@ export default function Features() {
         </section>
     );
 }
+

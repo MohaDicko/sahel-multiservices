@@ -30,15 +30,15 @@ const projects = [
 
 export default function DigitalProjects() {
     return (
-        <section id="portfolio" className="py-24 bg-slate-900">
+        <section id="portfolio" className="py-24 bg-sahel-navy">
             <div className="container mx-auto px-4">
                 <ScrollReveal animation="reveal-up">
                     <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                         <div>
-                            <h2 className="text-sm font-bold tracking-widest text-blue-500 uppercase mb-3">Nos Réalisations</h2>
+                            <h2 className="text-sm font-bold tracking-widest text-sahel-gold uppercase mb-3">Nos Réalisations</h2>
                             <h3 className="text-3xl md:text-5xl font-bold text-white">Projets Récents</h3>
                         </div>
-                        <button className="px-6 py-3 rounded-full border border-slate-700 text-slate-300 hover:bg-slate-800 transition-colors">
+                        <button className="px-6 py-3 rounded-full border border-white/10 text-white hover:bg-white/10 transition-colors">
                             Voir tout le portfolio
                         </button>
                     </div>
@@ -46,11 +46,11 @@ export default function DigitalProjects() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project, index) => (
-                        <ScrollReveal key={index} animation="reveal-up" delay={(`reveal-delay-${index * 100 + 100}` as any)}>
-                            <div className="group rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                        <ScrollReveal key={index} animation="reveal-up" delay={(`reveal-delay-${index * 100 + 100}`)}>
+                            <div className="group rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-sahel-gold/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
                                 <div className="relative h-64 overflow-hidden">
                                     {/* Overlay */}
-                                    <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/10 transition-colors z-10"></div>
+                                    <div className="absolute inset-0 bg-sahel-navy/40 group-hover:bg-sahel-navy/10 transition-colors z-10"></div>
                                     <Image
                                         src={project.image}
                                         alt={project.title}
@@ -58,13 +58,13 @@ export default function DigitalProjects() {
                                         className="object-cover transform group-hover:scale-110 transition-transform duration-700"
                                     />
                                     <div className="absolute top-4 left-4 z-20">
-                                        <span className="px-3 py-1 bg-blue-600/90 text-white text-xs font-bold rounded-full backdrop-blur-sm">
+                                        <span className="px-3 py-1 bg-sahel-bronze/90 text-white text-xs font-bold rounded-full backdrop-blur-sm">
                                             {project.category}
                                         </span>
                                     </div>
                                 </div>
                                 <div className="p-6">
-                                    <h4 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                                    <h4 className="text-xl font-bold text-white mb-2 group-hover:text-sahel-gold transition-colors">
                                         {project.title}
                                     </h4>
                                     <p className="text-slate-400 text-sm mb-4 line-clamp-2">
@@ -72,13 +72,13 @@ export default function DigitalProjects() {
                                     </p>
                                     <div className="flex flex-wrap gap-2 mb-6">
                                         {project.tech.map((t, i) => (
-                                            <span key={i} className="text-xs font-mono text-slate-500 bg-slate-900 px-2 py-1 rounded">
+                                            <span key={i} className="text-xs font-mono text-slate-400 bg-sahel-navy border border-white/5 px-2 py-1 rounded">
                                                 {t}
                                             </span>
                                         ))}
                                     </div>
-                                    <div className="flex justify-between items-center pt-4 border-t border-slate-800">
-                                        <button className="flex items-center gap-2 text-sm text-white hover:text-blue-400 transition-colors font-medium">
+                                    <div className="flex justify-between items-center pt-4 border-t border-white/10">
+                                        <button className="flex items-center gap-2 text-sm text-white hover:text-sahel-gold transition-colors font-medium">
                                             Voir détails <ExternalLink className="w-4 h-4" />
                                         </button>
                                     </div>
@@ -91,3 +91,4 @@ export default function DigitalProjects() {
         </section>
     );
 }
+

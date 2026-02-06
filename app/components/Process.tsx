@@ -53,7 +53,7 @@ export default function Process() {
                             <ScrollReveal
                                 key={index}
                                 animation="reveal-up"
-                                delay={(`reveal-delay-${index * 100 + 100}` as any)}
+                                delay={(`reveal-delay-${index * 100 + 100}`)}
                             >
                                 <div className="flex flex-col items-center text-center">
                                     <div className="relative mb-8">
@@ -86,3 +86,4 @@ export default function Process() {
         </section>
     );
 }
+

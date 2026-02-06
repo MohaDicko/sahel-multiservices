@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 interface ScrollRevealProps {
     children: React.ReactNode;
     animation?: "reveal-up" | "reveal-left" | "reveal-right" | "reveal-scale";
-    delay?: "reveal-delay-100" | "reveal-delay-200" | "reveal-delay-300" | "reveal-delay-400" | "reveal-delay-500" | "";
+    delay?: string;
     className?: string;
 }
 

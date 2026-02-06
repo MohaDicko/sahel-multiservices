@@ -1,10 +1,22 @@
 "use client";
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { Menu, X, Phone } from 'lucide-react';
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [navOpen, setNavOpen] = useState(false);
+
+  const getBrandInfo = () => {
+    if (pathname?.includes('/btp')) return { main: 'Sahel', sub: 'Infra', logo: '/logos/sahel-infra.png' };
+    if (pathname?.includes('/digital')) return { main: 'Sahel', sub: 'Tech', logo: '/logos/sahel-tech.png' };
+    if (pathname?.includes('/energie')) return { main: 'Sahel', sub: 'Energy', logo: '/logos/sahel-energy.png' };
+    if (pathname?.includes('/commerce')) return { main: 'Sahel', sub: 'Distribution', logo: '/logos/sahel-distribution.png' };
+    return { main: 'Groupe', sub: 'Sahel', logo: '/sahel-logo-v3.png' };
+  };
+
+  const brand = getBrandInfo();
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -42,10 +54,10 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3 group">
           <div className="relative overflow-hidden rounded-lg">
-            <img src="/sahel-logo-v3.png" className="h-10 w-auto transition-transform duration-300 group-hover:scale-110" alt="Sahel Logo" />
+            <img src={brand.logo} className="h-10 w-auto transition-transform duration-300 group-hover:scale-110" alt={`${brand.main} ${brand.sub} Logo`} />
           </div>
           <span className="self-center text-2xl font-bold whitespace-nowrap text-white">
-            Sahel<span className="text-amber-500">Multiservices</span>
+            {brand.main}<span className="text-amber-500">{brand.sub}</span>
           </span>
         </Link>
 
