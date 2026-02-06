@@ -3,6 +3,7 @@ import ScrollReveal from './ScrollReveal';
 import { Send, Phone, Mail, MapPin, Check } from 'lucide-react';
 import { useSearchParams, usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import { sendEmail } from '../actions';
 
 export default function ContactForm() {
     const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -17,11 +18,32 @@ export default function ContactForm() {
         else setSubject('');
     }, [pathname]);
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setStatus('sending');
-        // Simulation d'envoi avec les données (pour démonstration)
-        setTimeout(() => setStatus('success'), 1500);
+
+        const formData = new FormData(e.currentTarget);
+
+        // Si le sujet est vide dans le champ (ce qui ne devrait pas arriver avec required), on prend celui du state
+        if (!formData.get('subject')) {
+            formData.set('subject', subject);
+        }
+
+        try {
+            const result = await sendEmail(formData);
+            if (result.success) {
+                setStatus('success');
+            } else {
+                console.error(result.error);
+                setStatus('error'); // Vous pourriez ajouter un état d'erreur visuel
+                alert("Erreur lors de l'envoi : " + result.error);
+                setStatus('idle');
+            }
+        } catch (error) {
+            console.error(error);
+            setStatus('error');
+            setStatus('idle');
+        }
     };
 
     return (
@@ -107,6 +129,7 @@ export default function ContactForm() {
                                         <label className="block text-sm font-medium text-gray-400 mb-2">Nom complet</label>
                                         <input
                                             type="text"
+                                            name="name"
                                             required
                                             className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors"
                                             placeholder="Ex: Amadou Diallo"
@@ -116,6 +139,7 @@ export default function ContactForm() {
                                         <label className="block text-sm font-medium text-gray-400 mb-2">Email</label>
                                         <input
                                             type="email"
+                                            name="email"
                                             required
                                             className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors"
                                             placeholder="amadou@email.com"
@@ -126,6 +150,7 @@ export default function ContactForm() {
                                     <label className="block text-sm font-medium text-gray-400 mb-2">Sujet</label>
                                     <input
                                         type="text"
+                                        name="subject"
                                         required
                                         value={subject}
                                         onChange={(e) => setSubject(e.target.value)}
@@ -137,6 +162,7 @@ export default function ContactForm() {
                                     <label className="block text-sm font-medium text-gray-400 mb-2">Message</label>
                                     <textarea
                                         rows={4}
+                                        name="message"
                                         required
                                         className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors resize-none"
                                         placeholder="Votre message ici..."

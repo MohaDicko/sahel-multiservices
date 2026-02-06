@@ -7,19 +7,19 @@ const projects = [
     {
         title: "Résidence Les Palmiers",
         location: "Bamako, Mali",
-        image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         category: "Bâtiment"
     },
     {
         title: "Route Nationale RN4",
         location: "Koulikoro",
-        image: "https://images.unsplash.com/photo-1541432490333-690225134633?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         category: "Infrastructure"
     },
     {
         title: "Complexe Industriel Sahel",
         location: "Ségou",
-        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         category: "Industrie"
     }
 ];
