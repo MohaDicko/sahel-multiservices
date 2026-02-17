@@ -9,9 +9,7 @@ export default function Navbar() {
   const [navOpen, setNavOpen] = useState(false);
 
   const getBrandInfo = () => {
-    if (pathname?.includes('/btp')) return { main: 'Sahel', sub: 'Infra', logo: '/logos/sahel-infra.png' };
     if (pathname?.includes('/digital')) return { main: 'Sahel', sub: 'Tech', logo: '/logos/sahel-tech.png' };
-    if (pathname?.includes('/energie')) return { main: 'Sahel', sub: 'Energy', logo: '/logos/sahel-energy.png' };
     if (pathname?.includes('/commerce')) return { main: 'Sahel', sub: 'Distribution', logo: '/logos/sahel-distribution.png' };
     return { main: 'Groupe', sub: 'Sahel', logo: '/sahel-logo-v3.png' };
   };
@@ -44,56 +42,61 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled
-      ? "bg-slate-900/90 backdrop-blur-lg py-2 shadow-lg border-b border-white/5"
-      : "bg-transparent py-4"
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled
+      ? "glass py-2 shadow-2xl border-b border-white/10"
+      : "bg-transparent py-6"
       }`}>
       {/* Scroll Progress Bar */}
-      <div className="absolute bottom-0 left-0 h-[2px] bg-amber-500 transition-all duration-150 z-50" style={{ width: `${scrollProgress}%` }}></div>
+      <div className="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-sahel-gold to-sahel-bronze transition-all duration-300 z-50 shadow-[0_0_10px_rgba(180,83,9,0.5)]" style={{ width: `${scrollProgress}%` }}></div>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-3 group">
-          <div className="relative overflow-hidden rounded-lg">
-            <img src={brand.logo} className="h-10 w-auto transition-transform duration-300 group-hover:scale-110" alt={`${brand.main} ${brand.sub} Logo`} />
+        <Link href="/" className="flex items-center space-x-3 group relative">
+          <div className="relative overflow-hidden rounded-xl bg-white/5 p-1 backdrop-blur-sm border border-white/10 group-hover:border-sahel-gold/50 transition-all duration-500">
+            <img src={brand.logo} className="h-10 w-auto transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3" alt={`${brand.main} ${brand.sub} Logo`} />
           </div>
-          <span className="self-center text-2xl font-bold whitespace-nowrap text-white">
-            {brand.main}<span className="text-amber-500">{brand.sub}</span>
-          </span>
+          <div className="flex flex-col -space-y-1">
+            <span className="self-center text-2xl font-black whitespace-nowrap text-white tracking-tighter">
+              {brand.main}<span className="text-sahel-gold">{brand.sub}</span>
+            </span>
+            <span className="text-[10px] font-bold text-sahel-gold uppercase tracking-[0.2em] opacity-80 lg:block hidden">
+              Solutions Sahéliennes
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation & Action Button */}
-        <div className="flex md:order-2 items-center space-x-4">
+        <div className="flex md:order-2 items-center space-x-6">
           <Link
             href="https://wa.me/22374132032"
             target="_blank"
-            className="hidden lg:flex items-center gap-2 text-white bg-amber-600 hover:bg-amber-700 font-bold rounded-xl text-sm px-6 py-2.5 text-center transition-all duration-300 hover:scale-105 shadow-lg shadow-amber-500/20"
+            className="hidden lg:flex items-center gap-2 text-sahel-navy bg-sahel-gold hover:bg-amber-400 font-black rounded-xl text-sm px-8 py-3 text-center transition-all duration-500 hover:scale-105 shadow-[0_10px_30px_rgba(180,83,9,0.3)] group"
           >
-            <Phone className="w-4 h-4" />
+            <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform" />
             Urgence 24/7
           </Link>
 
           {/* Mobile menu button */}
           <button
             type="button"
-            className="inline-flex items-center p-2.5 text-gray-400 rounded-xl md:hidden hover:bg-slate-800 focus:outline-none transition-colors border border-slate-700/50"
+            className="inline-flex items-center p-3 text-white rounded-2xl md:hidden hover:bg-white/10 focus:outline-none transition-all border border-white/10 group active:scale-95"
             onClick={() => setNavOpen(!navOpen)}
           >
             <span className="sr-only">Menu</span>
-            {navOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {navOpen ? <X className="w-6 h-6 animate-scale-in" /> : <Menu className="w-6 h-6 animate-scale-in" />}
           </button>
         </div>
 
         {/* Desktop Menu Links */}
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-semibold md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0">
+          <ul className="flex flex-col p-4 md:p-0 mt-4 font-bold md:space-x-10 rtl:space-x-reverse md:flex-row md:mt-0">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className="block py-2 px-3 text-gray-300 hover:text-amber-500 transition-colors duration-300 relative group"
+                  className="block py-2 px-1 text-slate-300 hover:text-white transition-all duration-300 relative group text-sm uppercase tracking-widest"
                 >
                   {link.name}
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-amber-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-sahel-gold transition-all duration-500 group-hover:w-full"></span>
                 </Link>
               </li>
             ))}
@@ -101,24 +104,24 @@ export default function Navbar() {
         </div>
 
         {/* Mobile menu (Overlay) */}
-        <div className={`fixed inset-x-0 top-[72px] bg-slate-900/95 backdrop-blur-xl border-b border-white/5 md:hidden transition-all duration-500 ease-in-out transform ${navOpen ? "translate-y-0 opacity-100 visible h-auto pb-8" : "-translate-y-10 opacity-0 invisible h-0"
+        <div className={`fixed inset-x-0 top-[80px] glass border-b border-white/10 md:hidden transition-all duration-700 ease-[cubic-bezier(0.22, 1, 0.36, 1)] transform ${navOpen ? "translate-y-0 opacity-100 visible h-[calc(100vh-80px)]" : "-translate-y-10 opacity-0 invisible h-0"
           }`}>
-          <ul className="flex flex-col p-6 space-y-4">
-            {navLinks.map((link) => (
-              <li key={link.name}>
+          <ul className="flex flex-col p-8 space-y-6">
+            {navLinks.map((link, idx) => (
+              <li key={link.name} style={{ transitionDelay: `${idx * 100}ms` }} className={`transition-all duration-500 transform ${navOpen ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}>
                 <Link
                   href={link.href}
-                  className="flex items-center text-xl font-bold text-white hover:text-amber-500 transition-colors py-2 border-b border-slate-800"
+                  className="flex items-center text-3xl font-black text-white hover:text-sahel-gold transition-colors py-2 border-b border-white/5"
                   onClick={() => setNavOpen(false)}
                 >
                   {link.name}
                 </Link>
               </li>
             ))}
-            <li className="pt-4">
+            <li className="pt-8">
               <Link
                 href="#contact"
-                className="flex items-center justify-center gap-2 text-white bg-amber-600 font-bold rounded-xl py-4 text-center"
+                className="flex items-center justify-center gap-3 text-sahel-navy bg-sahel-gold font-black rounded-2xl py-5 text-xl shadow-xl shadow-sahel-gold/20"
                 onClick={() => setNavOpen(false)}
               >
                 Parlons de votre projet

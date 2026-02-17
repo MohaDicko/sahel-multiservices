@@ -26,39 +26,44 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section id="faq" className="bg-white dark:bg-gray-900 py-24">
-            <div className="max-w-screen-md mx-auto px-4">
+        <section id="faq" className="bg-sahel-sand dark:bg-slate-900/50 py-32 relative overflow-hidden">
+            <div className="max-w-screen-md mx-auto px-4 relative z-10">
                 <ScrollReveal animation="reveal-up">
-                    <div className="text-center mb-16">
-                        <HelpCircle className="w-12 h-12 text-amber-500 mx-auto mb-4" />
-                        <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
-                            Questions <span className="text-amber-500">Fréquentes</span>
+                    <div className="text-center mb-20">
+                        <div className="inline-block p-4 bg-sahel-gold/10 rounded-2xl mb-6">
+                            <HelpCircle className="w-10 h-10 text-sahel-gold" />
+                        </div>
+                        <h2 className="text-4xl md:text-5xl font-black text-sahel-navy dark:text-white mb-6 uppercase tracking-tight">
+                            Questions <span className="text-sahel-gold">Fréquentes</span>
                         </h2>
-                        <p className="text-gray-500 dark:text-gray-400 text-lg">
+                        <div className="h-1.5 w-20 bg-sahel-gold mx-auto mb-8 rounded-full"></div>
+                        <p className="text-slate-600 dark:text-slate-400 text-xl italic font-medium">
                             Tout ce que vous devez savoir pour démarrer votre collaboration avec nous.
                         </p>
                     </div>
                 </ScrollReveal>
 
-                <div className="space-y-4">
+                <div className="space-y-6">
                     {faqs.map((faq, index) => (
                         <ScrollReveal
                             key={index}
                             animation="reveal-up"
                             delay={(`reveal-delay-${index * 100 + 100}`)}
                         >
-                            <div className="border border-gray-100 dark:border-gray-800 rounded-2xl overflow-hidden hover:border-amber-500/30 transition-colors">
+                            <div className="group border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden hover:border-sahel-gold/30 hover:shadow-2xl hover:shadow-sahel-gold/5 transition-all duration-500">
                                 <button
                                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                    className="w-full flex items-center justify-between p-6 text-left focus:outline-none bg-gray-50 dark:bg-gray-800/40"
+                                    className="w-full flex items-center justify-between p-8 text-left focus:outline-none bg-white dark:bg-slate-900 group-hover:bg-slate-50 dark:group-hover:bg-white/5 transition-all"
                                 >
-                                    <span className="text-lg font-bold text-gray-900 dark:text-white pr-8">
+                                    <span className={`text-xl font-bold tracking-tight transition-all duration-300 ${openIndex === index ? 'text-sahel-gold' : 'text-sahel-navy dark:text-white'}`}>
                                         {faq.question}
                                     </span>
-                                    <ChevronDown className={`w-5 h-5 text-amber-500 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`} />
+                                    <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${openIndex === index ? 'bg-sahel-gold text-white rotate-180' : 'bg-slate-100 dark:bg-white/10 text-slate-400'}`}>
+                                        <ChevronDown className="w-6 h-6" />
+                                    </div>
                                 </button>
-                                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-96' : 'max-h-0'}`}>
-                                    <div className="p-6 text-gray-600 dark:text-gray-400 bg-white dark:bg-transparent border-t border-gray-100 dark:border-gray-800 leading-relaxed">
+                                <div className={`transition-all duration-700 ease-[cubic-bezier(0.22, 1, 0.36, 1)] ${openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    <div className="p-8 pt-0 text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 text-lg leading-relaxed font-medium">
                                         {faq.answer}
                                     </div>
                                 </div>
@@ -67,12 +72,19 @@ export default function FAQ() {
                     ))}
                 </div>
 
-                <div className="mt-12 text-center">
-                    <p className="text-gray-500 dark:text-gray-400">
-                        Vous avez une autre question ?
-                        <a href="#contact" className="ml-2 text-amber-600 dark:text-amber-500 font-bold hover:underline">Posez-la nous directement.</a>
-                    </p>
-                </div>
+                <ScrollReveal animation="reveal-up">
+                    <div className="mt-20 text-center p-10 bg-white/50 dark:bg-white/5 rounded-[2rem] border border-dashed border-slate-200 dark:border-white/10">
+                        <p className="text-slate-600 dark:text-slate-400 text-lg font-medium">
+                            Vous avez une autre question ?
+                            <a href="#contact" className="ml-3 text-sahel-gold font-black hover:text-sahel-bronze transition-colors flex inline-flex items-center gap-2 group">
+                                Posez-la nous directement
+                                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </p>
+                    </div>
+                </ScrollReveal>
             </div>
         </section>
     );

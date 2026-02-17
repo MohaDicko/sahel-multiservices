@@ -13,8 +13,6 @@ export default function ContactForm() {
     useEffect(() => {
         if (pathname.includes('/digital')) setSubject('Demande de projet Digital');
         else if (pathname.includes('/commerce')) setSubject('Consultation Commerce & Négoce');
-        else if (pathname.includes('/btp')) setSubject('Demande de devis BTP');
-        else if (pathname.includes('/energie')) setSubject('Services Énergie & Pétrole');
         else setSubject('');
     }, [pathname]);
 
@@ -23,8 +21,6 @@ export default function ContactForm() {
         setStatus('sending');
 
         const formData = new FormData(e.currentTarget);
-
-        // Si le sujet est vide dans le champ (ce qui ne devrait pas arriver avec required), on prend celui du state
         if (!formData.get('subject')) {
             formData.set('subject', subject);
         }
@@ -35,7 +31,7 @@ export default function ContactForm() {
                 setStatus('success');
             } else {
                 console.error(result.error);
-                setStatus('error'); // Vous pourriez ajouter un état d'erreur visuel
+                setStatus('error');
                 alert("Erreur lors de l'envoi : " + result.error);
                 setStatus('idle');
             }
@@ -47,59 +43,61 @@ export default function ContactForm() {
     };
 
     return (
-        <section id="contact" className="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <section id="contact" className="py-32 bg-sahel-navy text-white relative overflow-hidden">
             {/* Background Decorations */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[100px] pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-sahel-gold/10 rounded-full blur-[150px] animate-pulse-soft pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-sahel-bronze/10 rounded-full blur-[120px] animate-pulse-soft delay-1000 pointer-events-none"></div>
 
             <div className="max-w-screen-xl mx-auto px-4 relative z-10">
                 <ScrollReveal animation="reveal-up">
-                    <div className="text-center mb-16">
-                        <h2 className="text-amber-500 font-semibold tracking-wide uppercase text-sm mb-3">Contact</h2>
-                        <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-6">
-                            Parlons de votre <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">projet</span>
+                    <div className="text-center mb-24">
+                        <h2 className="text-sahel-gold font-black tracking-[0.3em] uppercase text-sm mb-6">Contactez-nous</h2>
+                        <h3 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter uppercase transition-colors duration-500">
+                            Donnez vie à vos <span className="text-transparent bg-clip-text bg-gradient-to-r from-sahel-gold via-amber-100 to-sahel-bronze">ambitions</span>
                         </h3>
-                        <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-                            Notre équipe est à votre écoute pour répondre à toutes vos questions et vous accompagner dans vos ambitions.
+                        <div className="h-1.5 w-24 bg-sahel-gold mx-auto mb-10 rounded-full"></div>
+                        <p className="text-slate-400 max-w-2xl mx-auto text-xl italic font-medium">
+                            Notre équipe d'experts est à votre écoute pour transformer vos idées en succès concrets.
                         </p>
                     </div>
                 </ScrollReveal>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
                     {/* Contact Info Items */}
-                    <div className="space-y-8">
+                    <div className="space-y-10">
                         <ScrollReveal animation="reveal-left" delay="reveal-delay-100">
-                            <div className="group flex items-center p-6 bg-slate-800/40 rounded-2xl border border-slate-700/50 hover:border-amber-500/50 transition-all duration-300">
-                                <div className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mr-6 group-hover:bg-amber-500 transition-colors">
-                                    <Phone className="w-6 h-6 text-amber-500 group-hover:text-white" />
+                            <div className="group flex items-center p-8 glass rounded-[2rem] border-white/5 hover:border-sahel-gold transition-all duration-700 hover:-translate-x-2">
+                                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mr-8 group-hover:bg-sahel-gold transition-all duration-500 shadow-xl">
+                                    <Phone className="w-8 h-8 text-sahel-gold group-hover:text-sahel-navy" />
                                 </div>
                                 <div>
-                                    <p className="text-sm text-gray-400 mb-1">Téléphones</p>
-                                    <p className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">+223 74 13 20 32 / +223 82 57 55 55</p>
+                                    <p className="text-xs font-black text-sahel-gold uppercase tracking-widest mb-2 opacity-70">Appelez-nous</p>
+                                    <p className="text-2xl font-black text-white group-hover:text-sahel-gold transition-colors tracking-tight">+223 74 13 20 32</p>
+                                    <p className="text-lg text-slate-400">+223 82 57 55 55</p>
                                 </div>
                             </div>
                         </ScrollReveal>
 
                         <ScrollReveal animation="reveal-left" delay="reveal-delay-200">
-                            <div className="group flex items-center p-6 bg-slate-800/40 rounded-2xl border border-slate-700/50 hover:border-amber-500/50 transition-all duration-300">
-                                <div className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mr-6 group-hover:bg-amber-500 transition-colors">
-                                    <Mail className="w-6 h-6 text-amber-500 group-hover:text-white" />
+                            <div className="group flex items-center p-8 glass rounded-[2rem] border-white/5 hover:border-sahel-gold transition-all duration-700 hover:-translate-x-2">
+                                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mr-8 group-hover:bg-sahel-gold transition-all duration-500 shadow-xl">
+                                    <Mail className="w-8 h-8 text-sahel-gold group-hover:text-sahel-navy" />
                                 </div>
                                 <div>
-                                    <p className="text-sm text-gray-400 mb-1">Email</p>
-                                    <p className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">contact@sahel-multiservices.com</p>
+                                    <p className="text-xs font-black text-sahel-gold uppercase tracking-widest mb-2 opacity-70">Email direct</p>
+                                    <p className="text-2xl font-black text-white group-hover:text-sahel-gold transition-colors tracking-tight lowercase">contact@sahel-multiservices.com</p>
                                 </div>
                             </div>
                         </ScrollReveal>
 
                         <ScrollReveal animation="reveal-left" delay="reveal-delay-300">
-                            <div className="group flex items-center p-6 bg-slate-800/40 rounded-2xl border border-slate-700/50 hover:border-amber-500/50 transition-all duration-300">
-                                <div className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mr-6 group-hover:bg-amber-500 transition-colors">
-                                    <MapPin className="w-6 h-6 text-amber-500 group-hover:text-white" />
+                            <div className="group flex items-center p-8 glass rounded-[2rem] border-white/5 hover:border-sahel-gold transition-all duration-700 hover:-translate-x-2">
+                                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mr-8 group-hover:bg-sahel-gold transition-all duration-500 shadow-xl">
+                                    <MapPin className="w-8 h-8 text-sahel-gold group-hover:text-sahel-navy" />
                                 </div>
                                 <div>
-                                    <p className="text-sm text-gray-400 mb-1">Localisation</p>
-                                    <p className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">Niamana, Bamako, Mali</p>
+                                    <p className="text-xs font-black text-sahel-gold uppercase tracking-widest mb-2 opacity-70">Siège social</p>
+                                    <p className="text-2xl font-black text-white group-hover:text-sahel-gold transition-colors tracking-tight uppercase">Niamana, Bamako, Mali</p>
                                 </div>
                             </div>
                         </ScrollReveal>
@@ -107,83 +105,86 @@ export default function ContactForm() {
 
                     <ScrollReveal animation="reveal-right" delay="reveal-delay-200">
                         {status === 'success' ? (
-                            <div className="bg-slate-800/50 p-10 rounded-3xl border border-green-500/30 text-center flex flex-col items-center justify-center min-h-[400px] animate-fade-in">
-                                <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-6">
-                                    <Check className="w-10 h-10 text-green-500" />
+                            <div className="glass p-12 md:p-16 rounded-[3rem] border-green-500/30 text-center flex flex-col items-center justify-center min-h-[500px] animate-scale-in">
+                                <div className="w-24 h-24 bg-green-500/20 rounded-3xl flex items-center justify-center mb-8 animate-bounce">
+                                    <Check className="w-12 h-12 text-green-500" />
                                 </div>
-                                <h4 className="text-2xl font-bold text-white mb-2">Message Envoyé !</h4>
-                                <p className="text-gray-400 mb-8 max-w-sm mx-auto">
-                                    Merci de nous avoir contactés. Notre équipe vous répondra dans les plus brefs délais (généralement sous 24h).
+                                <h4 className="text-3xl font-black text-white mb-4 uppercase tracking-tight">Message Transmis !</h4>
+                                <p className="text-slate-400 mb-12 text-lg font-medium max-w-sm mx-auto">
+                                    Merci pour votre confiance. Nos experts analysent votre demande et vous répondront sous 24h.
                                 </p>
                                 <button
                                     onClick={() => setStatus('idle')}
-                                    className="px-8 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-xl transition-colors font-medium"
+                                    className="px-10 py-4 bg-white/5 hover:bg-white/10 text-white rounded-2xl transition-all font-black uppercase tracking-widest shadow-xl"
                                 >
                                     Envoyer un autre message
                                 </button>
                             </div>
                         ) : (
-                            <form onSubmit={handleSubmit} className="bg-slate-800/50 p-8 md:p-10 rounded-3xl border border-slate-700/50 shadow-2xl">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-400 mb-2">Nom complet</label>
+                            <form onSubmit={handleSubmit} className="glass p-10 md:p-14 rounded-[3rem] border-white/5 shadow-3xl hover:border-sahel-gold/30 transition-all duration-700">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                                    <div className="group">
+                                        <label className="block text-xs font-black text-sahel-gold uppercase tracking-widest mb-3 opacity-70 group-focus-within:opacity-100 transition-opacity">Votre Nom</label>
                                         <input
                                             type="text"
                                             name="name"
                                             required
-                                            className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors"
+                                            className="w-full bg-slate-900/50 border border-white/10 rounded-2xl px-6 py-4 text-white font-bold focus:outline-none focus:border-sahel-gold focus:ring-4 focus:ring-sahel-gold/10 transition-all text-lg"
                                             placeholder="Ex: Amadou Diallo"
                                         />
                                     </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                                    <div className="group">
+                                        <label className="block text-xs font-black text-sahel-gold uppercase tracking-widest mb-3 opacity-70 group-focus-within:opacity-100 transition-opacity">Votre Email</label>
                                         <input
                                             type="email"
                                             name="email"
                                             required
-                                            className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors"
+                                            className="w-full bg-slate-900/50 border border-white/10 rounded-2xl px-6 py-4 text-white font-bold focus:outline-none focus:border-sahel-gold focus:ring-4 focus:ring-sahel-gold/10 transition-all text-lg"
                                             placeholder="amadou@email.com"
                                         />
                                     </div>
                                 </div>
-                                <div className="mb-6">
-                                    <label className="block text-sm font-medium text-gray-400 mb-2">Sujet</label>
+                                <div className="mb-8 group">
+                                    <label className="block text-xs font-black text-sahel-gold uppercase tracking-widest mb-3 opacity-70 group-focus-within:opacity-100 transition-opacity">Sujet de votre demande</label>
                                     <input
                                         type="text"
                                         name="subject"
                                         required
                                         value={subject}
                                         onChange={(e) => setSubject(e.target.value)}
-                                        className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors"
-                                        placeholder="Comment pouvons-nous vous aider ?"
+                                        className="w-full bg-slate-900/50 border border-white/10 rounded-2xl px-6 py-4 text-white font-bold focus:outline-none focus:border-sahel-gold focus:ring-4 focus:ring-sahel-gold/10 transition-all text-lg"
+                                        placeholder="Ex: Demande de projet Digital"
                                     />
                                 </div>
-                                <div className="mb-8">
-                                    <label className="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                                <div className="mb-12 group">
+                                    <label className="block text-xs font-black text-sahel-gold uppercase tracking-widest mb-3 opacity-70 group-focus-within:opacity-100 transition-opacity">Message détaillé</label>
                                     <textarea
-                                        rows={4}
+                                        rows={5}
                                         name="message"
                                         required
-                                        className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition-colors resize-none"
-                                        placeholder="Votre message ici..."
+                                        className="w-full bg-slate-900/50 border border-white/10 rounded-2xl px-6 py-4 text-white font-bold focus:outline-none focus:border-sahel-gold focus:ring-4 focus:ring-sahel-gold/10 transition-all resize-none text-lg"
+                                        placeholder="Décrivez-nous votre projet..."
                                     ></textarea>
                                 </div>
 
                                 <button
                                     type="submit"
                                     disabled={status === 'sending'}
-                                    className={`w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all duration-300 transform active:scale-95 bg-amber-500 hover:bg-amber-600 text-white shadow-lg shadow-amber-500/20 disabled:opacity-70 disabled:cursor-not-allowed`}
+                                    className={`w-full py-5 rounded-2xl font-black text-xl uppercase tracking-[0.2em] flex items-center justify-center gap-4 transition-all duration-500 transform active:scale-95 bg-sahel-gold hover:bg-amber-400 text-sahel-navy shadow-[0_20px_50px_rgba(180,83,9,0.3)] disabled:opacity-70 disabled:cursor-not-allowed group/submit`}
                                 >
                                     {status === 'sending' ? (
-                                        <div className="flex items-center gap-3">
-                                            <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <div className="flex items-center gap-4">
+                                            <svg className="animate-spin h-6 w-6 text-sahel-navy" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                             </svg>
-                                            Envoi en cours...
+                                            Transmission...
                                         </div>
                                     ) : (
-                                        <><Send className="w-5 h-5" /> Envoyer le message</>
+                                        <>
+                                            <span>Lancer le projet</span>
+                                            <Send className="w-6 h-6 transition-transform duration-300 group-hover/submit:translate-x-2 group-hover/submit:-translate-y-1" />
+                                        </>
                                     )}
                                 </button>
                             </form>

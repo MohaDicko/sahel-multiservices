@@ -17,18 +17,17 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Groupe Sahel – Expertise Pan-Sahélienne & Innovation",
-    template: "%s | Groupe Sahel"
+    default: "Sahel MULTISERVICES – Expertise & Innovation",
+    template: "%s | Sahel MULTISERVICES"
   },
-  description: "Référence multiservices au Mali et dans tout le Sahel. Solutions expertes en BTP, Technologie, Énergie et Négoce International pour le développement régional.",
+  description: "Référence multiservices au Mali et dans tout le Sahel. Solutions expertes en Technologie et Négoce International pour le développement régional.",
   keywords: [
-    "Groupe Sahel", "BTP Mali", "Digital Sahel", "Énergie Afrique de l'Ouest",
-    "Négoce Regional", "Export Mali", "Logistique Sahel", "Bamako", "Gao", "Mopti",
+    "Sahel MULTISERVICES", "Digital Sahel", "Négoce Regional", "Export Mali", "Logistique Sahel", "Bamako", "Gao", "Mopti",
     "Kayes", "Ségou", "Sikasso", "Kidal", "Tombouctou", "Mali", "Sahel", "UEMOA", "CEDEAO"
   ],
-  authors: [{ name: "Groupe Sahel" }],
-  creator: "Groupe Sahel",
-  publisher: "Groupe Sahel",
+  authors: [{ name: "Sahel MULTISERVICES" }],
+  creator: "Sahel MULTISERVICES",
+  publisher: "Sahel MULTISERVICES",
   formatDetection: {
     email: false,
     address: false,
@@ -41,27 +40,27 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Sahel Multi",
+    title: "Sahel MULTI",
   },
   openGraph: {
     type: "website",
     locale: "fr_FR",
     url: "https://sahel-multiservices.com",
-    siteName: "Groupe Sahel",
-    title: "Groupe Sahel – Développer le Mali, Connecter le Sahel",
+    siteName: "Sahel MULTISERVICES",
+    title: "Sahel MULTISERVICES – Développer le Mali, Connecter le Sahel",
     description: "Votre partenaire de confiance pour des projets d'envergure dans toute la région sahélienne.",
     images: [
       {
         url: "/sahel-logo-v3.png",
         width: 1200,
         height: 630,
-        alt: "Groupe Sahel - Mali & Sahel",
+        alt: "Sahel MULTISERVICES - Mali & Sahel",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Groupe Sahel - Expert Sahel",
+    title: "Sahel MULTISERVICES - Expert Sahel",
     description: "Solutions industrielles et digitales pour le Mali et l'espace Sahélien.",
     images: ["/sahel-logo-v3.png"],
   },
@@ -75,7 +74,7 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Groupe Sahel",
+    "name": "Sahel MULTISERVICES",
     "image": "https://sahel-multiservices.com/sahel-logo-v3.png",
     "@id": "https://sahel-multiservices.com",
     "url": "https://sahel-multiservices.com",
@@ -95,7 +94,7 @@ export default function RootLayout({
       { "@type": "Country", "name": "Senegal" },
       { "@type": "Country", "name": "Chad" }
     ],
-    "description": "Leader multiservices opérant dans tout le Mali et la région du Sahel : BTP, Technologie, Énergie et Commerce.",
+    "description": "Leader multiservices opérant dans tout le Mali et la région du Sahel : Technologie et Commerce.",
     "sameAs": [
       "https://linkedin.com/company/sahel-multiservices"
     ]
