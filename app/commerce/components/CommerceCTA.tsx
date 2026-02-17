@@ -5,29 +5,31 @@ import ScrollReveal from '../../components/ScrollReveal';
 
 export default function CommerceCTA() {
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <section className="py-32 bg-sahel-sand relative overflow-hidden">
+            {/* Background dots */}
+            <div className="absolute inset-0 bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:40px_40px] opacity-[0.03]"></div>
 
             <div className="container mx-auto px-4 relative z-10 text-center">
                 <ScrollReveal animation="reveal-up">
-                    <div className="max-w-4xl mx-auto bg-gray-900 text-white p-12 md:p-16 rounded-3xl shadow-2xl relative overflow-hidden">
-                        {/* Abstract Shapes */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500 rounded-full blur-[100px] opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
-                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-600 rounded-full blur-[100px] opacity-20 transform -translate-x-1/2 translate-y-1/2"></div>
+                    <div className="max-w-5xl mx-auto bg-sahel-navy p-12 md:p-24 rounded-[4rem] shadow-3xl relative overflow-hidden group">
+                        {/* Interactive Glow */}
+                        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-sahel-gold/10 rounded-full blur-[100px] group-hover:scale-110 transition-transform duration-1000"></div>
+                        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-sahel-bronze/10 rounded-full blur-[100px] group-hover:scale-110 transition-transform duration-1000 delay-200"></div>
 
-                        <h2 className="text-3xl md:text-5xl font-extrabold mb-6 relative z-10">
-                            Besoin d'un devis pour <br /> votre prochain import ?
+                        <h2 className="text-4xl md:text-7xl font-black mb-8 relative z-10 text-white tracking-tighter uppercase italic">
+                            Besoin d&apos;une <br /><span className="text-sahel-gold underline decoration-sahel-gold/30 underline-offset-8">expertise import ?</span>
                         </h2>
-                        <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto relative z-10">
-                            Nos experts sont prêts à vous fournir une cotation précise et compétitive sous 24h.
+                        <div className="h-1.5 w-24 bg-sahel-gold mx-auto mb-10 rounded-full relative z-10"></div>
+                        <p className="text-xl md:text-2xl text-slate-400 mb-14 max-w-3xl mx-auto relative z-10 font-medium italic leading-relaxed">
+                            Nos experts structurent votre logistique pour maximiser votre rentabilité. Recevez une cotation stratégique sous 24h.
                         </p>
 
                         <div className="relative z-10">
                             <Link
                                 href="#contact"
-                                className="inline-block px-10 py-5 bg-amber-500 hover:bg-amber-600 text-white font-bold text-lg rounded-xl transition-transform transform hover:scale-105 shadow-lg shadow-amber-500/25"
+                                className="inline-block px-12 py-5 bg-sahel-gold hover:bg-amber-400 text-sahel-navy font-black text-lg rounded-2xl transition-all duration-500 transform hover:scale-105 shadow-[0_20px_50px_rgba(180,83,9,0.3)] uppercase tracking-widest"
                             >
-                                Demander une cotation
+                                Obtenir une cotation
                             </Link>
                         </div>
                     </div>

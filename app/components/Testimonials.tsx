@@ -5,66 +5,72 @@ const testimonials = [
     {
         name: "Ibrahim Traoré",
         role: "Directeur Logistique",
-        content: "Groupe Sahel nous a accompagnés pour l'installation de notre système GPS. Leur expertise technique et leur réactivité sont impressionnantes.",
+        content: "Une collaboration exemplaire. Groupe Sahel nous a accompagnés pour l'installation de notre système GPS avec une expertise technique irréprochable et un support sans faille.",
         initials: "IT"
     },
     {
-        name: "Fanta Coulibaly",
-        role: "Chef de Projet BTP",
-        content: "Un partenaire de confiance qui comprend les réalités du terrain au Mali. Les délais sont respectés et la communication est fluide.",
-        initials: "FC"
+        name: "Moussa Diarra",
+        role: "Chef d'Entreprise",
+        content: "Nous utilisons leurs services digitaux pour notre plateforme stratégique. Une solution sur mesure qui a radicalement boosté notre productivité et notre image de marque.",
+        initials: "MD"
     },
     {
-        name: "Moussa Diarra",
-        role: "Entrepreneur",
-        content: "Nous utilisons leurs services digitaux pour notre plateforme e-commerce. Une solution sur mesure qui a boosté notre productivité.",
-        initials: "MD"
+        name: "Fanta Coulibaly",
+        role: "Responsable Import-Export",
+        content: "Un partenaire stratégique qui maîtrise parfaitement les rouages du commerce international au Sahel. Fiabilité, efficacité et professionnalisme.",
+        initials: "FC"
     }
 ];
 
 export default function Testimonials() {
     return (
-        <section className="bg-slate-50 dark:bg-slate-800/50 py-24">
-            <div className="max-w-screen-xl mx-auto px-4">
+        <section className="bg-white dark:bg-slate-950 py-32 relative overflow-hidden">
+            {/* Background Text */}
+            <div className="absolute top-1/2 left-0 w-full text-[15rem] font-black text-slate-50 dark:text-white/5 whitespace-nowrap pointer-events-none select-none -translate-y-1/2 opacity-50 tracking-tighter uppercase">
+                CONFIANCE EXCELLENCE PARTENARIAT
+            </div>
+
+            <div className="max-w-screen-xl mx-auto px-4 relative z-10">
                 <ScrollReveal animation="reveal-up">
-                    <div className="text-center mb-16">
-                        <h2 className="text-amber-600 font-semibold tracking-wide uppercase text-sm mb-3">Témoignages</h2>
-                        <h3 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
-                            Ils nous font <span className="text-amber-500">confiance</span>
+                    <div className="text-center mb-24 lg:mb-32">
+                        <h2 className="text-sahel-gold font-black tracking-[0.3em] uppercase text-sm mb-6">Témoignages</h2>
+                        <h3 className="text-4xl md:text-6xl font-black text-sahel-navy dark:text-white mb-8 tracking-tighter uppercase transition-colors duration-500">
+                            L'Écho de notre <span className="text-sahel-gold">succès</span>
                         </h3>
-                        <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-                            Découvrez les retours de nos clients sur nos différentes prestations de services.
+                        <div className="h-1.5 w-24 bg-sahel-gold mx-auto mb-10 rounded-full"></div>
+                        <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-xl italic font-medium leading-relaxed">
+                            Ceux qui nous font confiance témoignent de notre engagement quotidien pour l'excellence durable.
                         </p>
                     </div>
                 </ScrollReveal>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {testimonials.map((testi, index) => (
                         <ScrollReveal
                             key={index}
                             animation="reveal-up"
                             delay={(`reveal-delay-${index * 100 + 100}`)}
                         >
-                            <div className="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 relative h-full flex flex-col">
-                                <Quote className="absolute top-6 right-8 w-10 h-10 text-amber-500/10" />
+                            <div className="group bg-slate-50 dark:bg-white/5 p-12 rounded-[3rem] border border-transparent hover:border-sahel-gold/30 hover:bg-white dark:hover:bg-white/10 transition-all duration-700 hover:-translate-y-4 shadow-2xl relative h-full flex flex-col">
+                                <Quote className="absolute top-10 right-10 w-16 h-16 text-sahel-gold/10 group-hover:text-sahel-gold/20 transition-all duration-700" />
 
-                                <div className="flex items-center gap-1 mb-4">
+                                <div className="flex items-center gap-2 mb-8">
                                     {[...Array(5)].map((_, i) => (
-                                        <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
+                                        <Star key={i} className="w-5 h-5 fill-sahel-gold text-sahel-gold" />
                                     ))}
                                 </div>
 
-                                <p className="text-gray-600 dark:text-gray-300 italic mb-8 flex-1">
+                                <p className="text-slate-600 dark:text-slate-300 italic text-xl leading-relaxed mb-12 flex-1 font-medium">
                                     "{testi.content}"
                                 </p>
 
-                                <div className="flex items-center gap-4 border-t border-gray-100 dark:border-gray-700 pt-6">
-                                    <div className="w-12 h-12 bg-amber-500 flex items-center justify-center rounded-full text-white font-bold text-lg">
+                                <div className="flex items-center gap-6 pt-10 border-t border-slate-200 dark:border-white/10">
+                                    <div className="w-16 h-16 bg-sahel-gold rounded-2xl flex items-center justify-center text-sahel-navy font-black text-2xl shadow-xl group-hover:rotate-6 transition-transform duration-500">
                                         {testi.initials}
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900 dark:text-white">{testi.name}</h4>
-                                        <p className="text-sm text-gray-500 dark:text-gray-400">{testi.role}</p>
+                                        <h4 className="font-black text-2xl text-sahel-navy dark:text-white tracking-tight">{testi.name}</h4>
+                                        <p className="text-sahel-gold font-black uppercase tracking-widest text-xs mt-1">{testi.role}</p>
                                     </div>
                                 </div>
                             </div>

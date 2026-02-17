@@ -174,27 +174,31 @@ html {
   animation-delay: 0.5s;
 }
 
-/* Reveal on Scroll Styles */
+/* Reveal on Scroll Styles - Multi-Directional */
 .reveal {
   opacity: 0;
-  transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform, opacity;
 }
 
 .reveal-up {
-  transform: translateY(40px);
+  transform: translateY(60px);
+}
+
+.reveal-down {
+  transform: translateY(-60px);
 }
 
 .reveal-left {
-  transform: translateX(-40px);
+  transform: translateX(80px);
 }
 
 .reveal-right {
-  transform: translateX(40px);
+  transform: translateX(-80px);
 }
 
 .reveal-scale {
-  transform: scale(0.9);
+  transform: scale(0.85);
 }
 
 .reveal.visible {
@@ -202,7 +206,7 @@ html {
   transform: translate(0) scale(1);
 }
 
-/* Delay Utilites for reveal */
+/* Staggered Delays for Reveal */
 .reveal-delay-100 {
   transition-delay: 100ms;
 }
@@ -223,35 +227,95 @@ html {
   transition-delay: 500ms;
 }
 
-/* Glassmorphism */
-.glass {
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+.reveal-delay-600 {
+  transition-delay: 600ms;
 }
 
-.glass-light {
-  background: rgba(249, 247, 242, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(15, 23, 42, 0.05);
+.reveal-delay-700 {
+  transition-delay: 700ms;
 }
 
-/* Custom Scrollbar */
+.reveal-delay-800 {
+  transition-delay: 800ms;
+}
+
+/* Custom Scrollbar - Ultra Premium */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: #020617;
+  /* Very deep navy */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-sahel-bronze);
-  border-radius: 10px;
+  background: linear-gradient(to bottom, #b45309, #d97706);
+  border-radius: 20px;
+  border: 2px solid #020617;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-sahel-gold);
+  background: #f59e0b;
+}
+
+/* Glassmorphism - Refined */
+.glass {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+}
+
+/* Text & Visual Effects */
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+.animate-shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shine-effect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shine 4s infinite linear;
+}
+
+@keyframes float-slow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
 }

@@ -30,51 +30,54 @@ const steps = [
 
 export default function Process() {
     return (
-        <section className="bg-white dark:bg-gray-900 py-24 overflow-hidden">
-            <div className="max-w-screen-xl mx-auto px-4">
+        <section className="bg-sahel-sand dark:bg-slate-900/40 py-32 overflow-hidden relative">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-sahel-gold/20 to-transparent"></div>
+            <div className="max-w-screen-xl mx-auto px-4 relative z-10">
                 <ScrollReveal animation="reveal-up">
-                    <div className="text-center mb-16 lg:mb-24">
-                        <h2 className="text-amber-600 font-semibold tracking-wide uppercase text-sm mb-3">Notre Méthodologie</h2>
-                        <h3 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
-                            Un processus maîtrisé pour des <span className="text-amber-500">résultats concrets</span>
+                    <div className="text-center mb-24 lg:mb-32">
+                        <h2 className="text-sahel-gold font-black tracking-[0.3em] uppercase text-sm mb-6">Notre Méthodologie</h2>
+                        <h3 className="text-4xl md:text-6xl font-black text-sahel-navy dark:text-white mb-8 tracking-tighter uppercase transition-colors duration-500">
+                            Un cycle d'excellence <span className="text-sahel-gold">maîtrisé</span>
                         </h3>
-                        <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-                            Nous suivons une démarche structurée pour garantir la réussite de chaque mission que vous nous confiez.
+                        <div className="h-1.5 w-24 bg-sahel-gold mx-auto mb-10 rounded-full"></div>
+                        <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-xl italic font-medium leading-relaxed">
+                            De la vision initiale à la réalisation concrète, nous suivons un protocole rigoureux garantissant un succès mesurable.
                         </p>
                     </div>
                 </ScrollReveal>
 
                 <div className="relative">
                     {/* Connection Line (Desktop) */}
-                    <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-100 dark:bg-gray-800 -translate-y-1/2 z-0"></div>
+                    <div className="hidden lg:block absolute top-1/2 left-0 w-full h-1 bg-slate-200 dark:bg-white/5 -translate-y-1/2 z-0"></div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 relative z-10">
                         {steps.map((step, index) => (
                             <ScrollReveal
                                 key={index}
                                 animation="reveal-up"
                                 delay={(`reveal-delay-${index * 100 + 100}`)}
                             >
-                                <div className="flex flex-col items-center text-center">
-                                    <div className="relative mb-8">
+                                <div className="flex flex-col items-center text-center group">
+                                    <div className="relative mb-12">
                                         {/* Step Number Badge */}
-                                        <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center text-sm font-bold text-gray-900 dark:text-white border border-gray-100 dark:border-gray-700">
+                                        <div className="absolute -top-4 -right-4 w-12 h-12 rounded-2xl glass shadow-2xl flex items-center justify-center text-lg font-black text-sahel-gold border border-sahel-gold/20 z-20 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-500">
                                             0{index + 1}
                                         </div>
 
                                         {/* Icon Container */}
-                                        <div className={`w-20 h-20 rounded-2xl ${step.color} text-white flex items-center justify-center shadow-2xl transition-transform duration-300 hover:scale-110 hover:rotate-3`}>
-                                            <step.icon className="w-10 h-10" />
+                                        <div className={`w-28 h-28 rounded-[2rem] ${step.color} text-white flex items-center justify-center shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-700 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-[0_30px_60px_rgba(0,0,0,0.25)] relative overflow-hidden`}>
+                                            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-700"></div>
+                                            <step.icon className="w-14 h-14 relative z-10" />
                                         </div>
 
                                         {/* Connecting dot for mobile/tablet behavior (visual) */}
-                                        <div className="lg:hidden mt-4 w-1 h-8 bg-gray-100 dark:bg-gray-800 mx-auto"></div>
+                                        <div className="lg:hidden mt-8 w-1 h-12 bg-slate-200 dark:bg-white/10 mx-auto"></div>
                                     </div>
 
-                                    <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                                    <h4 className="text-2xl font-black text-sahel-navy dark:text-white mb-5 tracking-tight group-hover:text-sahel-gold transition-colors duration-300">
                                         {step.title}
                                     </h4>
-                                    <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+                                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed font-medium text-lg">
                                         {step.description}
                                     </p>
                                 </div>
