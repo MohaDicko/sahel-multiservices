@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, ShieldCheck } from 'lucide-react';
 
 export default function Footer() {
     return (
@@ -89,9 +89,19 @@ export default function Footer() {
                             <span className="text-[10px] font-black uppercase tracking-widest opacity-50">NIF:</span>
                             <span className="text-sahel-gold font-bold text-sm">NIF00560521 H</span>
                         </div>
+                        <div className="px-5 py-2 bg-sahel-gold/10 rounded-2xl border border-sahel-gold/20 flex items-center gap-3">
+                            <ShieldCheck className="w-3.5 h-3.5 text-sahel-gold" />
+                            <span className="text-sahel-gold font-black text-[10px] uppercase tracking-widest">Conformité RGPD/Mali</span>
+                        </div>
                     </div>
-                    <div className="text-xs font-bold uppercase tracking-[0.1em] opacity-40">
-                        © 2024 Groupe Sahel. L'Alliance de l'Expertise au Sahel.
+                    <div className="flex flex-col md:items-end gap-2">
+                        <div className="text-xs font-bold uppercase tracking-[0.1em] opacity-40">
+                            © 2024 Groupe Sahel. L'Alliance de l'Expertise au Sahel.
+                        </div>
+                        <div className="flex gap-6 text-[10px] font-black uppercase tracking-widest opacity-30 hover:opacity-100 transition-opacity">
+                            <Link href="/politique-confidentialite" className="hover:text-sahel-gold transition-colors">Politique de Confidentialité</Link>
+                            <Link href="/mentions-legales" className="hover:text-sahel-gold transition-colors">Mentions Légales</Link>
+                        </div>
                     </div>
                 </div>
             </div>

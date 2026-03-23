@@ -1,5 +1,6 @@
 "use client";
 import ScrollReveal from './ScrollReveal';
+import Link from 'next/link';
 import { Send, Phone, Mail, MapPin, Check } from 'lucide-react';
 import { useSearchParams, usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
@@ -187,6 +188,11 @@ export default function ContactForm() {
                                         </>
                                     )}
                                 </button>
+                                <div className="mt-8 text-center">
+                                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-relaxed">
+                                        En soumettant ce formulaire, vous acceptez que vos données soient traitées par le Groupe Sahel conformément à notre <Link href="/politique-confidentialite" className="text-sahel-gold hover:underline">politique de confidentialité</Link>.
+                                    </p>
+                                </div>
                             </form>
                         )}
                     </ScrollReveal>

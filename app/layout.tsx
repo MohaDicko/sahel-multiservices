@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import CookieConsent from "./components/CookieConsent";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -101,13 +102,23 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="fr">
-      <body className={`${inter.className} antialiased bg-sahel-sand text-sahel-navy selection:bg-sahel-bronze selection:text-white min-h-screen flex flex-col`}>
+    <html lang="fr" className="scroll-smooth" suppressHydrationWarning>
+      <body className={`${inter.className} antialiased bg-sahel-sand text-sahel-navy selection:bg-sahel-gold selection:text-white min-h-screen flex flex-col noise-overlay relative`}>
         <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID || ""} />
+        <CookieConsent />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* Skip to content link for accessibility */}
+        <a href="#main-content" className="sr-only focus:not-only-sr focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-sahel-gold focus:text-sahel-navy focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold">
+          Aller au contenu principal
+        </a>
+
+        <main id="main-content" className="flex-grow">
+          {children}
+        </main>
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -123,7 +134,6 @@ export default function RootLayout({
             `,
           }}
         />
-        {children}
       </body>
     </html>
   );

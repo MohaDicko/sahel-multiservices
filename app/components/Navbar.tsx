@@ -65,14 +65,21 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation & Action Button */}
-        <div className="flex md:order-2 items-center space-x-6">
+        <div className="flex md:order-2 items-center space-x-4 lg:space-x-6">
+          {/* Language Switcher (Compact UI) */}
+          <div className="hidden sm:flex items-center bg-white/5 rounded-lg border border-white/10 p-1 group">
+            <button className="px-2 py-1 text-[10px] font-black text-sahel-gold bg-white/10 rounded-md transition-all">FR</button>
+            <button className="px-2 py-1 text-[10px] font-black text-white/40 hover:text-white transition-all">EN</button>
+          </div>
+
           <Link
             href="https://wa.me/22374132032"
             target="_blank"
             className="hidden lg:flex items-center gap-2 text-sahel-navy bg-sahel-gold hover:bg-amber-400 font-black rounded-xl text-sm px-8 py-3 text-center transition-all duration-500 hover:scale-105 shadow-[0_10px_30px_rgba(180,83,9,0.3)] group"
+            aria-label="Contactez-nous sur WhatsApp"
           >
             <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-            Urgence 24/7
+            <span className="relative">Urgence 24/7</span>
           </Link>
 
           {/* Mobile menu button */}
@@ -80,14 +87,16 @@ export default function Navbar() {
             type="button"
             className="inline-flex items-center p-3 text-white rounded-2xl md:hidden hover:bg-white/10 focus:outline-none transition-all border border-white/10 group active:scale-95"
             onClick={() => setNavOpen(!navOpen)}
+            aria-expanded={navOpen}
+            aria-controls="mobile-menu"
           >
-            <span className="sr-only">Menu</span>
+            <span className="sr-only">Ouvrir le menu principal</span>
             {navOpen ? <X className="w-6 h-6 animate-scale-in" /> : <Menu className="w-6 h-6 animate-scale-in" />}
           </button>
         </div>
 
         {/* Desktop Menu Links */}
-        <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
+        <nav className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" aria-label="Menu principal">
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-bold md:space-x-10 rtl:space-x-reverse md:flex-row md:mt-0">
             {navLinks.map((link) => (
               <li key={link.name}>
@@ -101,12 +110,14 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-        </div>
+        </nav>
 
         {/* Mobile menu (Overlay) */}
-        <div className={`fixed inset-x-0 top-[80px] glass border-b border-white/10 md:hidden transition-all duration-700 ease-[cubic-bezier(0.22, 1, 0.36, 1)] transform ${navOpen ? "translate-y-0 opacity-100 visible h-[calc(100vh-80px)]" : "-translate-y-10 opacity-0 invisible h-0"
+        <div 
+          id="mobile-menu"
+          className={`fixed inset-x-0 top-[80px] glass border-b border-white/10 md:hidden transition-all duration-700 ease-[cubic-bezier(0.22, 1, 0.36, 1)] transform z-40 ${navOpen ? "translate-y-0 opacity-100 visible h-[calc(100vh-80px)]" : "-translate-y-10 opacity-0 invisible h-0"
           }`}>
-          <ul className="flex flex-col p-8 space-y-6">
+          <ul className="flex flex-col p-8 space-y-6 overflow-y-auto max-h-full">
             {navLinks.map((link, idx) => (
               <li key={link.name} style={{ transitionDelay: `${idx * 100}ms` }} className={`transition-all duration-500 transform ${navOpen ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}>
                 <Link
@@ -118,13 +129,13 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
-            <li className="pt-8">
+            <li className={`pt-8 transition-all duration-500 delay-500 transform ${navOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
               <Link
                 href="#contact"
                 className="flex items-center justify-center gap-3 text-sahel-navy bg-sahel-gold font-black rounded-2xl py-5 text-xl shadow-xl shadow-sahel-gold/20"
                 onClick={() => setNavOpen(false)}
               >
-                Parlons de votre projet
+                Démarrer un projet
               </Link>
             </li>
           </ul>
