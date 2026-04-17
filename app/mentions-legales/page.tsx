@@ -19,7 +19,7 @@ export default function MentionsLegales() {
                         </section>
                         <section className="space-y-4">
                             <h2 className="text-2xl font-black text-sahel-navy uppercase tracking-wider">Siège Social</h2>
-                            <p>Niamana, Bamako, Mali.<br/>Immatriculation RCC : 32502529582040R<br/>NIF : NIF00560521 H</p>
+                            <p>Niamana, Bamako, Mali.<br/>Immatriculation RCCM : 32502529582040R<br/>NIF : 025056082I H</p>
                         </section>
                         <section className="space-y-4">
                             <h2 className="text-2xl font-black text-sahel-navy uppercase tracking-wider">Hébergement</h2>

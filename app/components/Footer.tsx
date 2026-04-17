@@ -82,12 +82,12 @@ export default function Footer() {
                 <div className="mt-24 pt-10 border-t border-white/5 flex flex-col md:flex-row md:items-center md:justify-between gap-10">
                     <div className="flex flex-wrap gap-4">
                         <div className="px-5 py-2 bg-white/5 rounded-2xl border border-white/10 flex items-center gap-3">
-                            <span className="text-[10px] font-black uppercase tracking-widest opacity-50">RCC:</span>
+                            <span className="text-[10px] font-black uppercase tracking-widest opacity-50">RCCM:</span>
                             <span className="text-sahel-gold font-bold text-sm">32502529582040R</span>
                         </div>
                         <div className="px-5 py-2 bg-white/5 rounded-2xl border border-white/10 flex items-center gap-3">
                             <span className="text-[10px] font-black uppercase tracking-widest opacity-50">NIF:</span>
-                            <span className="text-sahel-gold font-bold text-sm">NIF00560521 H</span>
+                            <span className="text-sahel-gold font-bold text-sm">025056082I H</span>
                         </div>
                         <div className="px-5 py-2 bg-sahel-gold/10 rounded-2xl border border-sahel-gold/20 flex items-center gap-3">
                             <ShieldCheck className="w-3.5 h-3.5 text-sahel-gold" />
