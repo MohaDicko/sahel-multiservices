@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone } from 'lucide-react';
@@ -38,6 +39,7 @@ export default function Navbar() {
     { name: 'Services', href: '/#services' },
     { name: 'Pourquoi nous ?', href: '/#features' },
     { name: 'À propos', href: '/#about' },
+    { name: 'Actualités', href: '/actualites' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -52,7 +54,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3 group relative">
           <div className="relative overflow-hidden rounded-xl bg-white/5 p-1 backdrop-blur-sm border border-white/10 group-hover:border-sahel-gold/50 transition-all duration-500">
-            <img src={brand.logo} className="h-10 w-auto transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3" alt={`${brand.main} ${brand.sub} Logo`} />
+            <Image src={brand.logo} width={40} height={40} className="h-10 w-auto transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3" alt={`${brand.main} ${brand.sub} Logo`} />
           </div>
           <div className="flex flex-col -space-y-1">
             <span className="self-center text-2xl font-black whitespace-nowrap text-white tracking-tighter">

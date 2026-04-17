@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, ShieldCheck } from 'lucide-react';
 
 export default function Footer() {
@@ -10,7 +11,7 @@ export default function Footer() {
                     <div className="lg:col-span-4 max-w-sm">
                         <Link href="/" className="flex items-center mb-10 group">
                             <div className="relative overflow-hidden rounded-xl bg-white/5 p-1 border border-white/10 group-hover:border-sahel-gold/50 transition-all duration-500 mr-4">
-                                <img src="/sahel-logo-v3.png" className="h-10 w-auto" alt="Sahel Logo" />
+                                <Image src="/sahel-logo-v3.png" width={40} height={40} className="h-10 w-auto" alt="Sahel Logo" />
                             </div>
                             <span className="self-center text-3xl font-black whitespace-nowrap text-white tracking-tighter italic">
                                 Groupe<span className="text-sahel-gold">Sahel</span>
@@ -50,7 +51,7 @@ export default function Footer() {
                                 <li><Link href="/" className="hover:text-white transition-all hover:translate-x-2 block">Accueil</Link></li>
                                 <li><a href="#about" className="hover:text-white transition-all hover:translate-x-2 block">À propos</a></li>
                                 <li><a href="#contact" className="hover:text-white transition-all hover:translate-x-2 block">Contact</a></li>
-                                <li><a href="#" className="hover:text-white transition-all hover:translate-x-2 block">Actualités</a></li>
+                                <li><Link href="/actualites" className="hover:text-white transition-all hover:translate-x-2 block">Actualités</Link></li>
                             </ul>
                         </div>
 

@@ -47,7 +47,7 @@ export default function Services() {
                         <ScrollReveal
                             key={index}
                             animation="reveal-up"
-                            delay={(`reveal-delay-${((index % 3) * 200 + 100)}`)}
+                            delay={((index % 3) * 200 + 100)}
                         >
                             <div className="group h-full flex flex-col bg-white dark:bg-slate-900/50 rounded-[2rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_30px_60px_-15px_rgba(180,83,9,0.2)] transition-all duration-700 border border-slate-100 dark:border-white/5 hover:border-sahel-gold/30 relative overflow-hidden p-8">
                                 {/* Service Numbering */}

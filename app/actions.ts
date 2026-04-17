@@ -1,5 +1,8 @@
 "use server";
 import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function sendEmail(formData: FormData) {
     const name = formData.get("name") as string;
@@ -11,27 +14,49 @@ export async function sendEmail(formData: FormData) {
         return { success: false, error: "Champs manquants" };
     }
 
-    // Configuration du transporteur SMTP
-    // Vous devez configurer ces variables d'environnement dans votre fichier .env.local
-    // Exemple pour Gmail :
-    // SMTP_HOST=smtp.gmail.com
-    // SMTP_PORT=465
-    // SMTP_USER=votre-email@gmail.com
-    // SMTP_PASS=votre-mot-de-passe-d-application
+    // --- OPTION 1: RESEND (Prioritaire si configuré) ---
+    if (resend) {
+        try {
+            await resend.emails.send({
+                from: "Sahel MULTISERVICES <onboarding@resend.dev>", // À changer avec votre domaine vérifié
+                to: process.env.CONTACT_EMAIL || "contact@sahel-multiservices.com",
+                replyTo: email,
+                subject: `[Site Web] ${subject}`,
+                html: `
+                    <div style="font-family: Arial, sans-serif; padding: 20px; color: #333; max-width: 600px; border: 1px solid #eee; border-radius: 10px;">
+                        <h2 style="color: #d97706; border-bottom: 2px solid #d97706; padding-bottom: 10px;">Nouveau message de contact</h2>
+                        <p><strong>Nom :</strong> ${name}</p>
+                        <p><strong>Email :</strong> ${email}</p>
+                        <p><strong>Sujet :</strong> ${subject}</p>
+                        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
+                        <h3>Message :</h3>
+                        <p style="background-color: #f9f9f9; padding: 15px; border-left: 4px solid #d97706; font-style: italic; line-height: 1.6;">
+                            ${message.replace(/\n/g, '<br>')}
+                        </p>
+                        <footer style="margin-top: 30px; font-size: 12px; color: #999; text-align: center;">
+                            Ce message a été envoyé depuis le formulaire de contact de sahel-multiservices.com
+                        </footer>
+                    </div>
+                `,
+            });
+            return { success: true };
+        } catch (error) {
+            console.error("Erreur Resend:", error);
+            // On continue vers Nodemailer si Resend échoue
+        }
+    }
 
+    // --- OPTION 2: NODEMAILER (Fallback) ---
     if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
-        console.log("⚠️ Email non envoyé : Variables d'environnement SMTP manquantes.");
+        console.log("⚠️ Email non envoyé : Pas de configuration SMTP ou Resend.");
         console.log("Coordonnées reçues :", { name, email, subject, message });
-        // On retourne true pour simuler le succès côté client même si le serveur n'est pas configuré
-        // afin de ne pas bloquer l'expérience utilisateur en démo.
-        // DANS LA VRAIE VIE : retourner { success: false, error: "Configuration serveur manquante" }
         return { success: true, warning: "Mode simulation: voir logs serveur" };
     }
 
     const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: parseInt(process.env.SMTP_PORT || "465"),
-        secure: true, // true pour le port 465, false pour les autres ports
+        secure: true,
         auth: {
             user: process.env.SMTP_USER,
             pass: process.env.SMTP_PASS,
@@ -40,29 +65,29 @@ export async function sendEmail(formData: FormData) {
 
     try {
         await transporter.sendMail({
-            from: `"${name}" <${process.env.SMTP_USER}>`, // L'expéditeur doit souvent être le compte authentifié
-            replyTo: email, // Pour répondre directement au client
-            to: process.env.SMTP_USER, // L'email arrive chez vous
+            from: `"${name}" <${process.env.SMTP_USER}>`,
+            replyTo: email,
+            to: process.env.SMTP_USER,
             subject: `[Site Web] ${subject}`,
             text: message,
             html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-            <h2 style="color: #d97706;">Nouveau message de contact</h2>
-            <p><strong>Nom :</strong> ${name}</p>
-            <p><strong>Email :</strong> ${email}</p>
-            <p><strong>Sujet :</strong> ${subject}</p>
-            <hr />
-            <h3>Message :</h3>
-            <p style="background-color: #f9f9f9; padding: 15px; border-left: 4px solid #d97706;">
-                ${message.replace(/\n/g, '<br>')}
-            </p>
-        </div>
-      `,
+                <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+                    <h2 style="color: #d97706;">Nouveau message de contact</h2>
+                    <p><strong>Nom :</strong> ${name}</p>
+                    <p><strong>Email :</strong> ${email}</p>
+                    <p><strong>Sujet :</strong> ${subject}</p>
+                    <hr />
+                    <h3>Message :</h3>
+                    <p style="background-color: #f9f9f9; padding: 15px; border-left: 4px solid #d97706;">
+                        ${message.replace(/\n/g, '<br>')}
+                    </p>
+                </div>
+            `,
         });
 
         return { success: true };
     } catch (error) {
-        console.error("Erreur d'envoi d'email:", error);
+        console.error("Erreur Nodemailer:", error);
         return { success: false, error: "Erreur lors de l'envoi de l'email" };
     }
 }

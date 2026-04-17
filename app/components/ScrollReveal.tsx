@@ -1,53 +1,58 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
+import { motion } from "framer-motion";
 
 interface ScrollRevealProps {
     children: React.ReactNode;
-    animation?: "reveal-up" | "reveal-left" | "reveal-right" | "reveal-scale";
-    delay?: string;
+    animation?: "reveal-up" | "reveal-down" | "reveal-left" | "reveal-right" | "reveal-scale";
+    delay?: string | number;
     className?: string;
+    duration?: number;
+    once?: boolean;
 }
 
 export default function ScrollReveal({
     children,
     animation = "reveal-up",
-    delay = "",
-    className = ""
+    delay = 0,
+    className = "",
+    duration = 0.8,
+    once = true
 }: ScrollRevealProps) {
-    const [isVisible, setIsVisible] = useState(false);
-    const domRef = useRef<HTMLDivElement>(null);
+    const numericDelay = typeof delay === "string" 
+        ? parseInt(delay.replace("reveal-delay-", "")) || 0 
+        : delay;
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setIsVisible(true);
-                        observer.unobserve(entry.target);
-                    }
-                });
+    const variants = {
+        hidden: {
+            opacity: 0,
+            y: animation === "reveal-up" ? 60 : animation === "reveal-down" ? -60 : 0,
+            x: animation === "reveal-left" ? 80 : animation === "reveal-right" ? -80 : 0,
+            scale: animation === "reveal-scale" ? 0.85 : 1,
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            x: 0,
+            scale: 1,
+            transition: {
+                duration: duration,
+                delay: numericDelay / 1000,
+                ease: [0.22, 1, 0.36, 1],
             },
-            { threshold: 0.1 }
-        );
-
-        const { current } = domRef;
-        if (current) {
-            observer.observe(current);
-        }
-
-        return () => {
-            if (current) {
-                observer.unobserve(current);
-            }
-        };
-    }, []);
+        },
+    };
 
     return (
-        <div
-            ref={domRef}
-            className={`reveal ${animation} ${delay} ${isVisible ? "visible" : ""} ${className}`}
+        <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: once, amount: 0.1 }}
+            variants={variants}
+            className={className}
         >
             {children}
-        </div>
+        </motion.div>
     );
 }
+
