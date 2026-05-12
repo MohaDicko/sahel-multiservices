@@ -1,12 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Syne } from "next/font/google";
 import "./globals.css";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import CookieConsent from "./components/CookieConsent";
+import { Toaster } from "@/components/ui/sonner";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-inter",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  display: "swap",
+  variable: "--font-syne",
 });
 
 export const viewport: Viewport = {
@@ -102,8 +112,12 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="fr" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased bg-sahel-sand text-sahel-navy selection:bg-sahel-gold selection:text-white min-h-screen flex flex-col noise-overlay relative`}>
+    <html lang="fr" className={cn("scroll-smooth")} suppressHydrationWarning>
+      <body className={`${inter.variable} ${syne.variable} ${inter.className} antialiased bg-sahel-sand text-sahel-navy selection:bg-sahel-gold selection:text-white min-h-screen flex flex-col noise-overlay relative`}>
+        <style>{`
+          .font-display { font-family: var(--font-syne), system-ui, sans-serif; }
+        `}</style>
+        <Toaster position="bottom-right" theme="dark" richColors />
         <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_ID || ""} />
         <CookieConsent />
         <script

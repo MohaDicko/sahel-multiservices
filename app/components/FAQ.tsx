@@ -1,86 +1,93 @@
 "use client";
-import { useState } from 'react';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { HelpCircle, Sparkles } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const faqs = [
     {
+        id: "item-1",
         question: "Quels sont les délais d'intervention pour le GPS Fleet ?",
         answer: "Nous intervenons généralement sous 24h à 48h après la validation de votre demande pour l'installation des boîtiers et la configuration de la plateforme de suivi."
     },
     {
+        id: "item-2",
         question: "Proposez-vous des services en dehors de Bamako ?",
         answer: "Oui, Groupe Sahel intervient sur l'ensemble du territoire national malien et peut également accompagner des projets dans la sous-région (Sénégal, Burkina Faso, Niger)."
     },
     {
+        id: "item-3",
         question: "Comment puis-je obtenir un devis personnalisé ?",
         answer: "C'est simple ! Vous pouvez nous contacter via notre formulaire en ligne, nous appeler directement ou passer par WhatsApp. Nos experts vous répondront avec une proposition chiffrée sous 24h."
     },
     {
+        id: "item-4",
         question: "Assurez-vous la maintenance post-installation ?",
         answer: "Absolument. Qu'il s'agisse de solutions digitales, de systèmes GPS ou d'infrastructures énergétiques, nous proposons des contrats de maintenance pour garantir la pérennité de vos installations."
     }
 ];
 
 export default function FAQ() {
-    const [openIndex, setOpenIndex] = useState<number | null>(0);
-
     return (
-        <section id="faq" className="bg-sahel-sand dark:bg-slate-900/50 py-32 relative overflow-hidden">
-            <div className="max-w-screen-md mx-auto px-4 relative z-10">
+        <section id="faq" className="bg-sahel-sand dark:bg-[#080C1A] py-32 relative overflow-hidden">
+            {/* Background elements */}
+            <div className="absolute top-0 left-0 w-64 h-64 bg-sahel-gold/5 rounded-full blur-3xl pointer-events-none" />
+            
+            <div className="max-w-screen-md mx-auto px-6 relative z-10">
                 <ScrollReveal animation="reveal-up">
-                    <div className="text-center mb-20">
-                        <div className="inline-block p-4 bg-sahel-gold/10 rounded-2xl mb-6">
-                            <HelpCircle className="w-10 h-10 text-sahel-gold" />
+                    <div className="text-center mb-24">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sahel-gold/10 border border-sahel-gold/20 text-sahel-gold text-[10px] font-black uppercase tracking-[0.2em] mb-8">
+                            <Sparkles className="w-3.5 h-3.5" />
+                            Expertise & Réponse
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-black text-sahel-navy dark:text-white mb-6 uppercase tracking-tight">
-                            Questions <span className="text-sahel-gold">Fréquentes</span>
+                        <h2 className="text-5xl md:text-7xl font-black text-sahel-navy dark:text-white mb-6 uppercase font-display leading-tight">
+                            Questions <span className="text-gradient-gold">Fréquentes</span>
                         </h2>
-                        <div className="h-1.5 w-20 bg-sahel-gold mx-auto mb-8 rounded-full"></div>
-                        <p className="text-slate-600 dark:text-slate-400 text-xl italic font-medium">
-                            Tout ce que vous devez savoir pour démarrer votre collaboration avec nous.
+                        <div className="h-2 w-24 bg-sahel-gold mx-auto mb-10 rounded-full shadow-[0_0_20px_rgba(180,83,9,0.4)]"></div>
+                        <p className="text-slate-600 dark:text-slate-400 text-xl font-medium max-w-2xl mx-auto italic">
+                            Tout ce que vous devez savoir pour démarrer votre collaboration avec l'excellence sahélienne.
                         </p>
                     </div>
                 </ScrollReveal>
 
-                <div className="space-y-6">
-                    {faqs.map((faq, index) => (
-                        <ScrollReveal
-                            key={index}
-                            animation="reveal-up"
-                            delay={(`reveal-delay-${index * 100 + 100}`)}
-                        >
-                            <div className="group border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden hover:border-sahel-gold/30 hover:shadow-2xl hover:shadow-sahel-gold/5 transition-all duration-500">
-                                <button
-                                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                    className="w-full flex items-center justify-between p-8 text-left focus:outline-none bg-white dark:bg-slate-900 group-hover:bg-slate-50 dark:group-hover:bg-white/5 transition-all"
-                                >
-                                    <span className={`text-xl font-bold tracking-tight transition-all duration-300 ${openIndex === index ? 'text-sahel-gold' : 'text-sahel-navy dark:text-white'}`}>
+                <ScrollReveal animation="reveal-up" delay={200}>
+                    <Accordion className="w-full space-y-6">
+                        {faqs.map((faq) => (
+                            <AccordionItem 
+                                key={faq.id} 
+                                value={faq.id}
+                                className="group border border-slate-200 dark:border-white/5 rounded-[2rem] bg-white dark:bg-white/5 px-8 transition-all duration-500 hover:border-sahel-gold/30 hover:shadow-2xl hover:shadow-sahel-gold/5 overflow-hidden"
+                            >
+                                <AccordionTrigger className="py-8 hover:no-underline text-left">
+                                    <span className="text-xl md:text-2xl font-black tracking-tight text-sahel-navy dark:text-white group-data-[state=open]:text-sahel-gold transition-colors font-display uppercase">
                                         {faq.question}
                                     </span>
-                                    <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${openIndex === index ? 'bg-sahel-gold text-white rotate-180' : 'bg-slate-100 dark:bg-white/10 text-slate-400'}`}>
-                                        <ChevronDown className="w-6 h-6" />
-                                    </div>
-                                </button>
-                                <div className={`transition-all duration-700 ease-[cubic-bezier(0.22, 1, 0.36, 1)] ${openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className="p-8 pt-0 text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 text-lg leading-relaxed font-medium">
+                                </AccordionTrigger>
+                                <AccordionContent className="pb-8 text-slate-600 dark:text-slate-400 text-lg leading-relaxed font-medium">
+                                    <div className="pt-2 border-t border-slate-100 dark:border-white/5 mt-2">
                                         {faq.answer}
                                     </div>
-                                </div>
-                            </div>
-                        </ScrollReveal>
-                    ))}
-                </div>
+                                </AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                </ScrollReveal>
 
                 <ScrollReveal animation="reveal-up">
-                    <div className="mt-20 text-center p-10 bg-white/50 dark:bg-white/5 rounded-[2rem] border border-dashed border-slate-200 dark:border-white/10">
-                        <p className="text-slate-600 dark:text-slate-400 text-lg font-medium">
-                            Vous avez une autre question ?
-                            <a href="#contact" className="ml-3 text-sahel-gold font-black hover:text-sahel-bronze transition-colors flex inline-flex items-center gap-2 group">
-                                Posez-la nous directement
-                                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
+                    <div className="mt-24 text-center p-12 bg-white/40 dark:bg-white/5 rounded-[3rem] border border-dashed border-slate-200 dark:border-white/10 backdrop-blur-sm">
+                        <p className="text-slate-600 dark:text-slate-300 text-lg font-bold">
+                            Vous avez une demande spécifique ?
+                            <a href="#contact" className="ml-3 text-sahel-gold font-black hover:text-sahel-bronze transition-all flex inline-flex items-center gap-3 group uppercase tracking-widest text-sm">
+                                Contactez nos experts
+                                <div className="w-10 h-10 rounded-full border border-sahel-gold/30 flex items-center justify-center group-hover:bg-sahel-gold group-hover:border-sahel-gold transition-all duration-500">
+                                    <svg className="w-5 h-5 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </div>
                             </a>
                         </p>
                     </div>
@@ -89,4 +96,3 @@ export default function FAQ() {
         </section>
     );
 }
-

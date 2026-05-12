@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 interface ScrollRevealProps {
     children: React.ReactNode;
@@ -23,7 +23,7 @@ export default function ScrollReveal({
         ? parseInt(delay.replace("reveal-delay-", "")) || 0 
         : delay;
 
-    const variants = {
+    const variants: Variants = {
         hidden: {
             opacity: 0,
             y: animation === "reveal-up" ? 60 : animation === "reveal-down" ? -60 : 0,
@@ -38,7 +38,7 @@ export default function ScrollReveal({
             transition: {
                 duration: duration,
                 delay: numericDelay / 1000,
-                ease: [0.22, 1, 0.36, 1],
+                ease: [0.22, 1, 0.36, 1] as any,
             },
         },
     };

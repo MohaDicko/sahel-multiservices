@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import PageHero from "../components/PageHero";
 import ScrollReveal from "../components/ScrollReveal";
 import Link from "next/link";
-import { Calendar, User, ArrowRight } from "lucide-react";
+import { Calendar, User, ArrowRight, Newspaper } from "lucide-react";
 
 const articles = [
     {
@@ -40,10 +40,11 @@ export default function Actualites() {
         <main className="min-h-screen bg-sahel-sand dark:bg-sahel-navy transition-colors duration-500">
             <Navbar />
             <PageHero 
-                title="Actualités &" 
-                subtitle="Dernières Nouvelles"
-                description="Suivez l'évolution du Groupe Sahel et restez informé des tendances du marché regional."
-                accent="Perspectives"
+                badge={{ label: "Actualités", icon: Newspaper }}
+                title={<>Actualités & <span className="text-gradient-gold">Perspectives</span></>}
+                description="Suivez l'évolution du Groupe Sahel et restez informé des tendances du marché regional au Mali et à l'international."
+                imageSrc="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=1200"
+                imageAlt="Actualités Groupe Sahel"
             />
             
             <section className="py-24 px-4">
