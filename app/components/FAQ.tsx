@@ -79,7 +79,7 @@ export default function FAQ() {
 
                 <ScrollReveal animation="reveal-up">
                     <div className="mt-24 text-center p-12 bg-white/40 dark:bg-white/5 rounded-[3rem] border border-dashed border-slate-200 dark:border-white/10 backdrop-blur-sm">
-                        <p className="text-slate-600 dark:text-slate-300 text-lg font-bold">
+                        <div className="text-slate-600 dark:text-slate-300 text-lg font-bold">
                             Vous avez une demande spécifique ?
                             <a href="#contact" className="ml-3 text-sahel-gold font-black hover:text-sahel-bronze transition-all flex inline-flex items-center gap-3 group uppercase tracking-widest text-sm">
                                 Contactez nos experts
@@ -89,7 +89,7 @@ export default function FAQ() {
                                     </svg>
                                 </div>
                             </a>
-                        </p>
+                        </div>
                     </div>
                 </ScrollReveal>
             </div>
